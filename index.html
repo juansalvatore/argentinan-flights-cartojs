@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Vuelos</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+        <link rel="stylesheet" href="./css/main.css">
+        <!-- Load Leaflet CSS -->
+        <link href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div class="navbar">
+            <div class="navbar-content">
+                <img class="logo" src="./assets/logo-ministerio-modernizacion.png" alt="Ministerio de Modernización Presidencia de la Nación">
+                <span class="redes">
+                    <p class="comparti">Compartí</p>
+                    <img style="width: 35px;" src="./assets/twitter.svg" alt="twitter">
+                    <img style="width: 15px" src="./assets/face.svg" alt="facebook">
+                </span>
+            </div>
+        </div>
+
+        <!-- layer picker -->
+
+        <div class="scroll-buttons-container">
+            <span id="scroll-down" class="button-scroll">
+                <img class="arrow-down" src="./assets/flecha.svg" alt="scroll down">
+            </span>
+            <span id="scroll-up" class="button-scroll">
+                <img class="arrow-up" src="./assets/flecha.svg" alt="scroll down">
+            </span>
+        </div>
+
+
+        <div id="content" class="content">
+            <div class="section section-one">
+                <div class="title-content">
+                    <span class="title">Lorem ipsum dolor sit amet</span>
+                    <p class="title-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua.</p>
+                </div>
+                <div id="mapOne"></div>
+            </div>
+
+            <div class="section section-two">
+                <div id="map"></div>
+                <span class="selector">
+                    <span class="button-container">
+                        <span id="internacional" class="button">VUELOS INTERNACIONALES</span>
+                        <span id="local" class="button">VUELOS LOCALES</span>
+                        <span id="all" class="button button-active">VER TODOS</span>
+                    </span>
+                </span>
+            </div>
+
+            <div class="section section-three">
+                <div class="scroll-box">
+                    <div class="secOne"></div>
+                    <div class="secTwo"></div>
+                    <div class="secThree"></div>
+                    <div class="secFour"></div>
+                    <div class="secFive"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <div id="with-scroll">
+            <div class="scroll-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.</p>
+            </div>
+        </div> -->
+
+        <!-- Load Leaflet and Carto libraries -->
+        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+        <script src="https://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.0-beta/carto.min.js"></script>
+        <script src="./js/buttons.js"></script>
+        <script src="./js/mapOne.js"></script>
+        <script src="./js/mapTwo.js"></script>
+        <script src="./js/scroll.js"></script>
+    </body>
+
+</html>
