@@ -8,6 +8,7 @@
         <title>Vuelos</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
         <link rel="stylesheet" href="./css/main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- Load Leaflet CSS -->
         <link href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" rel="stylesheet">
 
@@ -39,10 +40,10 @@
 
         <div id="content" class="content">
             <div class="section section-one">
-                <div class="title-content">
+                <div class="title-content fade-waiting">
                     <span class="title">Lorem ipsum dolor sit amet</span>
-                    <p class="title-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua.</p>
+                    <span class="title-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua.</span>
                 </div>
                 <div id="mapOne"></div>
             </div>
@@ -50,7 +51,7 @@
             <div class="section section-two">
                 <div id="map"></div>
                 <span class="selector">
-                    <span class="button-container">
+                    <span class="button-container fade-waiting">
                         <span id="internacional" class="button">VUELOS INTERNACIONALES</span>
                         <span id="local" class="button">VUELOS LOCALES</span>
                         <span id="all" class="button button-active">VER TODOS</span>
@@ -60,38 +61,69 @@
 
             <div class="section section-three">
                 <div class="scroll-box">
-                    <div class="secOne"></div>
-                    <div class="secTwo"></div>
+
+                    <!-- SECTION ONE -->
+                    <div class="secOne">
+                        <h2 class="title-secOne fade-waiting">Lorem ipsum dolor sit ipsum dolor sit</h2>
+                        <div class="planeOne fade-waiting">
+                            <img class="plane-icon" src="./assets/icono_avion.svg" alt="avion">
+                            <h3>SUBTITULO</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur.</p>
+                        </div>
+                        <div class="planeTwo fade-waiting">
+                            <img class="plane-icon" src="./assets/icono_avion.svg" alt="avion">
+                            <h3>SUBTITULO</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                        <div class="planeThree fade-waiting">
+                            <img class="plane-icon" src="./assets/icono_avion.svg" alt="avion">
+                            <h3>SUBTITULO</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+
+                    <!-- SECTION TWO -->
+                    <div class="secTwo">
+                        <h2 class="title-secOne fade-waiting">Lorem ipsum dolor sit ipsum dolor sit</h2>
+                        <span class="paragraph-secTwo fade-waiting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua.</span>
+                        <div class="block-a fade-waiting">
+                            <h3>SUBTITULO</h3>
+                            <span class="number">3056</span>
+                        </div>
+                        <div class="block-b fade-waiting">
+                            <h3>SUBTITULO</h3>
+                            <span class="number">23353432</span>
+                        </div>
+                        <div class="block-c fade-waiting">
+                            <h3>SUBTITULO</h3>
+                            <span class="number">124</span>
+                        </div>
+                    </div>
+
+                    <!-- SECTION THREE -->
                     <div class="secThree"></div>
+                    <!-- SECTION FOUR -->
                     <div class="secFour"></div>
+                    <!-- SECTION FIVE -->
                     <div class="secFive"></div>
                 </div>
-
             </div>
         </div>
 
-        <!-- <div id="with-scroll">
-            <div class="scroll-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.</p>
-            </div>
-        </div> -->
+
 
         <!-- Load Leaflet and Carto libraries -->
         <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
         <script src="https://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.0-beta/carto.min.js"></script>
+        <!-- call to library for controlling GIF animation -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
         <script src="./js/buttons.js"></script>
         <script src="./js/mapOne.js"></script>
         <script src="./js/mapTwo.js"></script>
         <script src="./js/scroll.js"></script>
+        <script src="./js/scrollEvents.js"></script>
     </body>
 
 </html>
