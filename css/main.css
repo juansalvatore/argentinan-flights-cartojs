@@ -96,7 +96,7 @@ u {
 .title-content {
   z-index: 20;
   top: 300px;
-  width: 600px;
+  max-width: 600px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -115,6 +115,7 @@ u {
 .title-paragraph {
   position: relative;
   top: 20px;
+  display: block;
 }
 
 .layer-picker {
@@ -142,26 +143,40 @@ u {
 }
 
 /* landing style */
-.navbar {
-  position: fixed;
+
+.navbar-container {
+  position: absolute;
+  display: flex;
+  top: 0;
+  justify-content: center;
   width: 100%;
-  height: 80px;
   background-color: white;
+  height: 80px;
+  z-index: 20;
   border-bottom: 1px solid #ccc;
   box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  position: fixed;
+  max-width: 1200px;
+  height: 80px;
+  background-color: white;
   z-index: 30;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #ccc;
 }
 
 .navbar-content {
   display: flex;
   align-items: center;
+  width: 1200px;
 }
 
 .redes {
   position: absolute;
-  right: 60px;
+  right: 0px;
   display: flex;
   flex-direction: row;
   width: 200px;
@@ -181,7 +196,6 @@ u {
 
 .logo {
   position: relative;
-  left: 20px;
   width: 300px;
 }
 
@@ -196,10 +210,12 @@ u {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all ease-in-out 300ms;
 }
 
 .button-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .button {
@@ -356,4 +372,53 @@ u {
 .fade-in {
   opacity: 1;
   /* transform: translate(-50%, 0%) !important; */
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1232px) {
+  .navbar {
+    max-width: 750px;
+  }
+}
+@media (max-width: 778px) {
+  .navbar {
+    max-width: 550px;
+  }
+}
+
+@media (max-width: 622px) {
+  .navbar {
+    max-width: 550px;
+  }
+  .redes {
+    display: none;
+  }
+  .logo {
+    position: absolute;
+    margin-left: 0px;
+  }
+  .button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .button-container {
+    max-width: 300px;
+  }
+  .selector {
+    height: 140px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 574px) {
+  .navbar {
+    max-width: 300px;
+  }
 }
