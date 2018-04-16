@@ -11,9 +11,9 @@ $(document).ready(function() {
       triggerHook: 0.9,
     })
       .setClassToggle(this, 'fade-in') // add class to #img-1
-      .addIndicators({
-        name: 'fade in',
-      })
+      // .addIndicators({
+      //   name: 'fade in',
+      // })
       .addTo(controller)
   })
 

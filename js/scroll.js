@@ -3,9 +3,13 @@ const up = document.getElementById('scroll-up')
 let page = 0
 
 disableScroll()
+document.getElementById('arrow-up').classList.add('hidden-button')
+
 down.addEventListener('click', d => {
   if (page === 0) {
     document.getElementById('content').style.top = '-100vh'
+    document.getElementById('arrow-up').classList.remove('hidden-button')
+
     page++
   } else if (page === 1) {
     document.getElementById('content').style.top = '-200vh'
@@ -17,6 +21,8 @@ down.addEventListener('click', d => {
 up.addEventListener('click', d => {
   if (page === 1) {
     document.getElementById('content').style.top = '0'
+    document.getElementById('arrow-up').classList.add('hidden-button')
+
     page--
   } else if (page === 2) {
     document.getElementById('content').style.top = '-100vh'

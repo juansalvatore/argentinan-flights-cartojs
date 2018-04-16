@@ -48,10 +48,24 @@ u {
   color: steelblue;
 }
 
+/* SOCIAL NETWORKS */
+#twitter:hover {
+  cursor: pointer;
+}
+#facebook:hover {
+  cursor: pointer;
+}
 /* SCROLL BUTTONS */
+.hidden-button {
+  opacity: 0;
+  cursor: default;
+}
+.hidden-button:hover {
+  cursor: default !important;
+}
 .scroll-buttons-container {
   position: fixed;
-  bottom: 50px;
+  bottom: 30px;
   right: 30px;
   z-index: 40;
   display: flex;
@@ -73,9 +87,11 @@ u {
 
 .arrow-down {
   transform: scale(1);
+  transition: all ease-in-out 300ms;
 }
 .arrow-up {
   transform: scale(1) rotate(180deg);
+  transition: all ease-in-out 300ms;
 }
 
 #map {
@@ -420,5 +436,11 @@ u {
 @media (max-width: 574px) {
   .navbar {
     max-width: 300px;
+  }
+  .title-content {
+    left: 0;
+    transform: none;
+    padding: 20px;
+    top: 210px;
   }
 }

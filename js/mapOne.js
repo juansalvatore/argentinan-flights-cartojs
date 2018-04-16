@@ -5,6 +5,7 @@ var mapOne = L.map('mapOne', {
   doubleClickZoom: false,
   dragging: false,
   scrollWheelZoom: false,
+  attributionControl: false,
 }).setView([-34.603722, -59.381592], 3)
 
 // Add base layer
@@ -53,5 +54,15 @@ var layerTwo = new carto.layer.Layer(sourceTwo, styleTwo)
 client.addLayer(layer)
 client.addLayer(layerTwo)
 client.getLeafletLayer().addTo(mapOne)
+let zoom = 5
+var w = window.innerWidth
 
-mapOne.setZoom(5)
+if (w < 600) {
+  zoom = 4
+}
+
+if (w < 425) {
+  zoom = 3
+}
+
+mapOne.setZoom(zoom)
