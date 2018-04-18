@@ -31,7 +31,7 @@ var sourceTwo = new carto.source.SQL(
 var style = new carto.style.CartoCSS(`
       #layer {
         line-width: 1.5;
-        line-color: ramp([clasificacion_vuelo], (#5F4690, #1D6996), ("Cabotaje", "Internacional"), "=");
+        line-color: ramp([clasificacion_vuelo], (#7189f1, #1941b0), ("Cabotaje", "Internacional"), "=");
         line-opacity: 0.12;
       }
     `)
@@ -39,7 +39,7 @@ var style = new carto.style.CartoCSS(`
 var styleTwo = new carto.style.CartoCSS(`
     #layer {
       marker-width: 3;
-      marker-fill: ramp([clasificacion_vuelo], (#5F4690, #1D6996), ("Cabotaje", "Internacional"), "=");
+      marker-fill: ramp([clasificacion_vuelo], (#7189f1, #1941b0), ("Cabotaje", "Internacional"), "=");
       marker-fill-opacity: 1;
       marker-allow-overlap: true;
       marker-line-width: 0;

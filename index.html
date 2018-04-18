@@ -9,13 +9,32 @@
         <link rel="shortcut icon" href="https://argob.github.io/poncho/favicon.ico">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
         <link rel="stylesheet" href="./css/main.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.8.1.js" integrity="sha256-e6rn3uRMD1/JU+Fd/OYCf2OSFcUOXHQlkCL0rYR/JUM=" crossorigin="anonymous"></script> -->
+
         <!-- Load Leaflet CSS -->
         <link href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.12/themes/css/cartodb.css" />
 
+        <link rel="stylesheet" href="./css/leaflet.css">
+        <!-- TEST -->
+        <script type="cartocss/text" id="cartocss">
+            #layer {
+                marker-width: 7;
+                marker-fill: #EE4D5A;
+                marker-fill-opacity: 0.9;
+                marker-allow-overlap: true;
+                marker-line-width: 1;
+                marker-line-color: #FFFFFF;
+                marker-line-opacity: 1;
+              }
+        </script>
     </head>
 
     <body>
+
+
         <div class="navbar-container">
             <div class="navbar">
                 <div class="navbar-content">
@@ -30,7 +49,7 @@
         </div>
         <!-- layer picker -->
 
-        <div class="scroll-buttons-container">
+        <div id="scroll-buttons-container" class="scroll-buttons-container">
             <span id="scroll-down" class="button-scroll">
                 <img id="arrow-down" class="arrow-down" src="./assets/flecha.svg" alt="scroll down">
             </span>
@@ -60,7 +79,18 @@
                     </span>
                 </span>
             </div>
+            <div class="section section-four">
+                <span class="selector selector-two">
+                    <span class="button-container fade-waiting">
+                        <span id="ezeiza" class="button button-active">EZEIZA</span>
+                        <span id="cordoba" class="button">CORDOBA</span>
+                        <span id="mendoza" class="button">MENDOZA</span>
+                    </span>
+                </span>
+                <span id="iframe"></span>
 
+
+            </div>
             <div class="section section-three">
                 <div class="scroll-box">
 
@@ -113,17 +143,21 @@
             </div>
         </div>
 
-
-
         <!-- Load Leaflet and Carto libraries -->
+        <script src="http://libs.cartocdn.com/cartodb.js/v3/3.12/cartodb.js"></script>
         <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
         <script src="https://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.0-beta/carto.min.js"></script>
+        <!-- include cartodb.js library -->
+        <!-- <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script> -->
+
+
         <!-- call to library for controlling GIF animation -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
         <script src="./js/buttons.js"></script>
         <script src="./js/mapOne.js"></script>
         <script src="./js/mapTwo.js"></script>
+        <!-- <script src="./js/mapThree.js"></script> -->
         <script src="./js/scroll.js"></script>
         <script src="./js/scrollEvents.js"></script>
     </body>

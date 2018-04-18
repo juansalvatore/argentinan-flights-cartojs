@@ -1,6 +1,12 @@
 // This isn't necessary but it keeps the editor from thinking L and carto are typos
 /* global L, carto */
 
+/* 
+  TODO: 
+  Create acurate positioning and zoom when clicking the filter buttons 
+  in different screen sizes.
+*/
+
 var w = window.innerWidth
 
 let lon = 4.603722
@@ -49,7 +55,7 @@ var sourceTwo = new carto.source.SQL(
 var style = new carto.style.CartoCSS(`
     #layer {
       line-width: 1.5;
-      line-color: ramp([clasificacion_vuelo], (#5F4690, #1D6996), ("Cabotaje", "Internacional"), "=");
+      line-color: ramp([clasificacion_vuelo], (#7189f1, #1941b0), ("Cabotaje", "Internacional"), "=");
       line-opacity: 0.12;
     }
   `)
@@ -57,7 +63,7 @@ var style = new carto.style.CartoCSS(`
 var styleTwo = new carto.style.CartoCSS(`
     #layer {
       marker-width: 3;
-      marker-fill: ramp([clasificacion_vuelo], (#5F4690, #1D6996), ("Cabotaje", "Internacional"), "=");
+      marker-fill: ramp([clasificacion_vuelo], (#7189f1, #1941b0), ("Cabotaje", "Internacional"), "=");
       marker-fill-opacity: 1;
       marker-allow-overlap: true;
       marker-line-width: 0;
@@ -69,7 +75,7 @@ var styleTwo = new carto.style.CartoCSS(`
 var styleTwo_2 = new carto.style.CartoCSS(`
   #layer {
     marker-width: ramp([nro_despegues], range(1, 7), quantiles(5));
-    marker-fill: ramp([clasificacion_vuelo], (#5F4690, #1D6996), ("Cabotaje", "Internacional"), "=");
+    marker-fill: ramp([clasificacion_vuelo], (#7189f1, #1941b0), ("Cabotaje", "Internacional"), "=");
     marker-fill-opacity: 1;
     marker-allow-overlap: true;
     marker-line-width: 0;
