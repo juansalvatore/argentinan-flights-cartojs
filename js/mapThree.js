@@ -1,92 +1,92 @@
-// function main() {
-//   var CARTOCSS = [
-//     'Map {',
-//     '  -torque-frame-count:1;',
-//     '  -torque-animation-duration:1;',
-//     '  -torque-time-attribute:"date";',
-//     '  -torque-aggregation-function: "avg(angle*40);avg(mag)";',
-//     '  -torque-resolution:4;',
-//     '  -torque-data-aggregation:linear;',
-//     '}',
-//     '#wind {',
-//     '  marker-width: 5;',
-//     '  marker-fill-opacity: 1.0;',
-//     '  marker-max-mag: 7; ',
-//     '  marker-type: vector;',
-//     '  marker-mag: "scale_log(value1, 0,61.76,0,7)";',
-//     '  marker-stroke : "scale_log(value1,0.1,61.76,#FFFFB2,#B10026)";',
-//     '  marker-angle : "scale_lin(value0,0,255,0,6.283185)";',
-//     '}',
-//   ]
+function main() {
+  //   var CARTOCSS = [
+  //     'Map {',
+  //     '  -torque-frame-count:1;',
+  //     '  -torque-animation-duration:1;',
+  //     '  -torque-time-attribute:"date";',
+  //     '  -torque-aggregation-function: "avg(angle*40);avg(mag)";',
+  //     '  -torque-resolution:4;',
+  //     '  -torque-data-aggregation:linear;',
+  //     '}',
+  //     '#wind {',
+  //     '  marker-width: 5;',
+  //     '  marker-fill-opacity: 1.0;',
+  //     '  marker-max-mag: 7; ',
+  //     '  marker-type: vector;',
+  //     '  marker-mag: "scale_log(value1, 0,61.76,0,7)";',
+  //     '  marker-stroke : "scale_log(value1,0.1,61.76,#FFFFB2,#B10026)";',
+  //     '  marker-angle : "scale_lin(value0,0,255,0,6.283185)";',
+  //     '}',
+  //   ]
 
-//   CARTOCSS = CARTOCSS.join('\n')
-//   // Add base layer
-//   var layer = L.tileLayer(
-//     'https://{s}.basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}.png',
-//     {
-//       maxZoom: 18,
-//     }
-//   )
-
-//   // Instantiate new map object, place it in 'map' element
-//   var mapThree = new L.Map('mapThree', {
-//     center: [25, 25], // Western Egypt
-//     zoom: 2,
-//     scrollWheelZoom: false,
-//   })
-
-//   mapThree.addLayer(layer)
-
-//   // setup layer
-//   var layerSource = {
-//     type: 'torque',
-//     options: {
-//       user_name: 'modernizacion', // replace with your user name
-//       table_name: 'same_07_vuelos_ida_puntos_torque',
-//       cartocss: $('#cartocss').html(),
-//       sql: 'select * from same_07_vuelos_ida_puntos_torque',
-//       cartocss_version: '1.0.0',
-//       geom_column: 'the_geom_webmercator',
-//     },
-//   }
-
-//   // put torque layer on top of basemap
-//   cartodb
-//     .createLayer(mapThree, layerSource)
-//     .addTo(mapThree)
-//     .done(function(layer) {
-//       // do stuff
-//     })
-//     .error(function(err) {
-//       console.log('Error: ' + err)
-//     })
-// }
-
-// window.onload = main
-
-window.onload = function() {
-  // map.dragging.disable()
-  // map.touchZoom.disable()
-  // map.doubleClickZoom.disable()
-  // map.scrollWheelZoom.disable()
-  // map.keyboard.disable()
-
-  cartodb.createVis(
-    'mapThree',
-    'http://documentation.carto.com/u/modernizacion/api/v2/viz/421bb584-7839-402d-9fad-ac5f3fafe42a/viz.json',
+  //   CARTOCSS = CARTOCSS.join('\n')
+  // Add base layer
+  var layer = L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}.png',
     {
-      zoom: 3,
-      center_lat: -14,
-      center_lon: -58,
-      layer_selector: false,
-      infowindow: false,
-      // cartodb_logo: false,
-      // zoomControl: false,
-      // search: false,
-      // scrollWheelZoom: false,
+      maxZoom: 18,
     }
   )
+
+  // Instantiate new map object, place it in 'map' element
+  var mapThree = new L.Map('mapThree', {
+    center: [25, 25], // Western Egypt
+    zoom: 2,
+    scrollWheelZoom: false,
+  })
+
+  mapThree.addLayer(layer)
+
+  // setup layer
+  var layerSource = {
+    type: 'torque',
+    options: {
+      user_name: 'modernizacion', // replace with your user name
+      table_name: 'same_07_vuelos_ida_puntos_torque',
+      cartocss: $('#cartocss').html(),
+      sql: 'select * from same_07_vuelos_ida_puntos_torque',
+      cartocss_version: '1.0.0',
+      geom_column: 'the_geom_webmercator',
+    },
+  }
+
+  // put torque layer on top of basemap
+  cartodb
+    .createLayer(mapThree, layerSource)
+    .addTo(mapThree)
+    .done(function(layer) {
+      // do stuff
+    })
+    .error(function(err) {
+      console.log('Error: ' + err)
+    })
 }
+
+window.onload = main
+
+// window.onload = function() {
+//   // map.dragging.disable()
+//   // map.touchZoom.disable()
+//   // map.doubleClickZoom.disable()
+//   // map.scrollWheelZoom.disable()
+//   // map.keyboard.disable()
+
+//   cartodb.createVis(
+//     'mapThree',
+//     'http://documentation.carto.com/u/modernizacion/api/v2/viz/421bb584-7839-402d-9fad-ac5f3fafe42a/viz.json',
+//     {
+//       zoom: 3,
+//       center_lat: -14,
+//       center_lon: -58,
+//       layer_selector: false,
+//       infowindow: false,
+//       // cartodb_logo: false,
+//       // zoomControl: false,
+//       // search: false,
+//       // scrollWheelZoom: false,
+//     }
+//   )
+// }
 
 // WITH simplify as (
 
