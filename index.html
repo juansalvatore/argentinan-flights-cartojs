@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Vuelos</title>
         <link rel="shortcut icon" href="https://argob.github.io/poncho/favicon.ico">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="./css/main.css">
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.8.1.js" integrity="sha256-e6rn3uRMD1/JU+Fd/OYCf2OSFcUOXHQlkCL0rYR/JUM=" crossorigin="anonymous"></script> -->
@@ -82,16 +82,36 @@
 
             <div class="section section-two">
                 <div id="map"></div>
+
                 <span class="selector">
-                    <span class="button-container fade-waiting">
-                        <span id="internacional" class="button">VUELOS INTERNACIONALES</span>
-                        <span id="local" class="button">VUELOS LOCALES</span>
-                        <span id="all" class="button button-active">VER TODOS</span>
-                    </span>
+                    <div class="selector-content">
+                        <div class="selector-title">
+                            Rutas aéreas de Argentina
+                        </div>
+                        <span class="button-container fade-waiting">
+                            <span id="internacional" class="button">
+                                <span class="circle-indicator circle-internacionales"></span>Vuelos internacionales</span>
+                            <span id="local" class="button">
+                                <span class="circle-indicator circle-locales"></span>Vuelos locales</span>
+                            <span id="all" class="button button-active">Ver todos</span>
+                        </span>
+                    </div>
                 </span>
 
+                <div id="footer-info" class="footer-info">
+                    <div class="footer-content">
+                        <div id="footer-text" class="footer-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+
+                        <div id="footer-number">109.000</div>
+                        <div id="footer-rutas" class="footer-rutas">Todas las rutas</div>
+
+                    </div>
+                </div>
+
             </div>
-            <div class="section section-four">
+            <!-- <div class="section section-four">
                 <span class="selector selector-two">
                     <span class="button-container fade-waiting">
                         <span id="ezeiza" class="button button-active">EZEIZA</span>
@@ -100,10 +120,8 @@
                     </span>
                 </span>
                 <span id="iframe"></span>
-                <!-- <div id="mapThree"></div> -->
-
-
-            </div>
+                <div id="mapThree"></div>
+            </div> -->
             <div class="section section-three">
                 <div class="scroll-box">
 
