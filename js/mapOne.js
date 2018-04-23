@@ -17,10 +17,6 @@ L.tileLayer(
 ).addTo(mapOne)
 
 // Initialize Carto
-var client = new carto.Client({
-  apiKey: 'bd0f2377f89fab680d1b5db0df8bb3e4a7fac691',
-  username: 'modernizacion',
-})
 
 // Initialze source data
 var source = new carto.source.SQL(
