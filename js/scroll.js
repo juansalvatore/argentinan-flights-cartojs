@@ -19,7 +19,6 @@ down.addEventListener('click', d => {
     document.getElementById('scroll-buttons-container').classList.add('up')
     document.getElementById('footer-info').classList.remove('hide-footer')
     page++
-    console.log(page)
   } else if (page === 1) {
     document.getElementById('content').style.top = '-200vh'
     // document.getElementById('iframe').innerHTML =
@@ -33,7 +32,6 @@ down.addEventListener('click', d => {
     page++
     document.getElementById('arrow-down').classList.add('hidden-button')
     enableScroll()
-    console.log(page)
   }
   // } else if (page === 2) {
   //   document.getElementById('content').style.top = '-300vh'
@@ -54,7 +52,6 @@ up.addEventListener('click', d => {
     document.getElementById('scroll-buttons-container').classList.remove('up')
     document.getElementById('footer-info').classList.add('hide-footer')
     page--
-    console.log(page)
   } else if (page === 2) {
     document.getElementById('content').style.top = '-100vh'
     disableScroll()
@@ -68,7 +65,6 @@ up.addEventListener('click', d => {
     }, 100)
 
     page--
-    console.log(page)
   }
   // else if (page === 3) {
   //   document.getElementById('content').style.top = '-200vh'

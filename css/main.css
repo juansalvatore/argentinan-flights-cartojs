@@ -93,13 +93,16 @@ u {
   cursor: pointer;
   opacity: 0.9;
 }
+.remove-arrows {
+  display: none;
+}
 
 .arrow-down {
-  transform: scale(0.8);
+  transform: scale(0.9) translateX(-42%);
   transition: all ease-in-out 300ms;
 }
 .arrow-up {
-  transform: scale(0.8) rotate(180deg);
+  transform: scale(0.9) rotate(180deg);
   transition: all ease-in-out 300ms;
 }
 
@@ -263,10 +266,12 @@ u {
   justify-content: space-between;
   align-items: center;
   color: white;
+  flex-wrap: wrap;
 }
 
 .selector-title {
   font-size: 25px;
+  padding-left: 20px;
 }
 
 .selector-two {
@@ -275,7 +280,7 @@ u {
 
 .button-container {
   display: flex;
-  flex-wrap: wrap;
+  padding-right: 20px;
 }
 
 .button {
@@ -437,6 +442,7 @@ u {
   justify-content: center;
   flex-direction: row;
   transition: all ease-in-out 300ms;
+  overflow: hidden;
 }
 
 i {
@@ -469,7 +475,6 @@ i:hover {
   top: 80px;
   width: 100%;
   height: 480px;
-  background-color: #222232;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -569,23 +574,25 @@ i:hover {
 
 .vuelos-internacionales-svg {
   width: 630px;
+  transition: all ease-in-out 300ms;
 }
 
 .vuelos-nacionales-svg {
   width: 530px;
+  transition: all ease-in-out 300ms;
 }
 
 .secOne-text-container {
-  width: 400px;
+  max-width: 440px;
   color: white;
 }
 
 .secOne-title {
   font-size: 30px;
+  margin-bottom: 20px;
 }
 
 .secOne-paragraph {
-  margin-top: 20px;
   line-height: 29px;
   font-size: 20px;
   font-weight: 200;
@@ -600,6 +607,7 @@ i:hover {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  background-color: #2d2d43;
 }
 
 .secFour-title {
@@ -629,7 +637,8 @@ i:hover {
   font-weight: 400;
 }
 
-.grafico-lineas-bariloche {
+.grafico-lineas-bariloche,
+.grafico-lineas-iguazu {
   max-width: 700px;
 }
 
@@ -668,7 +677,6 @@ i:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
 }
 
 .secSix-right {
@@ -728,6 +736,14 @@ i:hover {
   /* transform: translate(-50%, 0%) !important; */
 }
 
+/* MOBILE LINE GRAPHS */
+
+.grafico-lineas-bariloche-mobile,
+.grafico-lineas-iguazu-mobile {
+  display: none;
+  margin: 15px;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 1232px) {
@@ -735,6 +751,9 @@ i:hover {
     max-width: 750px;
   }
   .secSix-content {
+    max-width: 750px;
+  }
+  .footer-content {
     max-width: 750px;
   }
 }
@@ -770,8 +789,23 @@ i:hover {
 }
 
 @media (max-width: 778px) {
+  .vuelos-internacionales-svg {
+    transform: translateX(-6%);
+  }
   .navbar {
     max-width: 550px;
+  }
+  .footer-text {
+    display: none;
+  }
+  .footer-content {
+    justify-content: center;
+  }
+  .footer-number {
+    margin: 0;
+  }
+  .footer-info {
+    height: 60px;
   }
   .secSix-content {
     max-width: 550px;
@@ -786,9 +820,39 @@ i:hover {
   .secThree {
     height: 870px;
   }
+  .selector {
+    height: 190px;
+  }
+  .up {
+    bottom: 80px;
+  }
+  .selector-title {
+    margin: 0;
+    padding: 0;
+  }
+  .button-container {
+    margin-top: 10px;
+  }
+  .selector-content {
+    justify-content: center;
+    align-items: center;
+    width: 740px;
+  }
 }
 
 @media (max-width: 622px) {
+  .secOne {
+    height: 750px;
+  }
+  .secTwo {
+    height: 744px;
+  }
+  .vuelos-nacionales-svg {
+    max-width: 419px !important;
+  }
+  .vuelos-internacionales-svg {
+    width: 500px;
+  }
   .navbar {
     max-width: 550px;
   }
@@ -805,7 +869,7 @@ i:hover {
     width: 100%;
     text-align: center;
     margin-left: 0;
-    display: block;
+    padding: 12px;
     padding-top: 5px;
     padding-bottom: 5px;
   }
@@ -813,8 +877,24 @@ i:hover {
     max-width: 300px;
   }
   .selector {
-    height: 215px;
+    height: 181px;
     padding: 10px;
+  }
+  .selector-content {
+    max-width: 311px;
+  }
+  .secFour {
+    height: 1600px;
+  }
+
+  .grafico-lineas-iguazu,
+  .grafico-lineas-bariloche {
+    display: none;
+  }
+
+  .grafico-lineas-iguazu-mobile,
+  .grafico-lineas-bariloche-mobile {
+    display: block;
   }
 }
 
@@ -849,19 +929,66 @@ i:hover {
   }
 }
 
+@media (max-width: 492px) {
+  .secOne {
+    height: 665px;
+  }
+  .vuelos-nacionales-svg {
+    max-width: 364px !important;
+  }
+  .secFour {
+    height: 1400px;
+  }
+  .vuelos-internacionales-svg {
+    width: 400px;
+  }
+}
+
 @media (max-width: 425px) {
+  .secOne-paragraph {
+    font-size: 17px;
+  }
+  .secOne-title {
+    font-size: 25px;
+  }
+  .secThree-title {
+    font-size: 25px;
+  }
   .secFive {
     height: 426px;
   }
-
   .secThree {
     height: 900px;
+  }
+  .secFour {
+    height: 1200px;
+  }
+  .title-content {
+    top: 120px;
+  }
+}
+
+@media (max-width: 375px) {
+  .secOne {
+    height: 616px;
+  }
+  .vuelos-internacionales-svg {
+    width: 362px;
+  }
+  .vuelos-nacionales-svg {
+    max-width: 310px !important;
+  }
+  .secTwo {
+    height: 628px;
   }
 }
 
 @media (max-width: 320px) {
   .secFive {
     height: 466px;
+  }
+  .secFour {
+    height: 1100px;
   }
 }
 
