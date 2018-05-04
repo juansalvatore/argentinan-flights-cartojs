@@ -1,4 +1,3 @@
-
 <!--
 This example wants to show the different functionalities of the cartodbCreateLayer()
 method by adding a custom tooltip, a custom infobox and a custominfowindow.
@@ -11,46 +10,58 @@ This example calls the cartodb layer by using a basemap without labels, then add
  -->
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
     <style>
-      html, body, #map {
+      html,
+      body,
+      #map {
         height: 100%;
         padding: 0;
         margin: 0;
       }
+
       /* gives the tooltip a margin from the pointer */
 
-      body > div.cartodb-tooltip{
+      body>div.cartodb-tooltip {
         margin-top: 10px !important;
         margin-left: 10px !important;
         border-radius: 15px;
 
       }
+
       /* gives to the tooltip different styles */
-      div.cartodb-tooltip-content-wrapper{
+
+      div.cartodb-tooltip-content-wrapper {
         padding: 10px 10px 10px 10px;
-        max-width:none;
+        max-width: none;
         text-align: center;
         background-color: #FFF!important;
         opacity: 0.9;
         border-radius: 25px!important;
       }
+
       /* set styles to the <p> tag of the tooltip */
-       div.cartodb-tooltip-content-wrapper p{
+
+      div.cartodb-tooltip-content-wrapper p {
         color: red!important;
       }
+
       /* set infobox styles */
-     .cartodb-infobox{
-        opacity:0.9;
+
+      .cartodb-infobox {
+        opacity: 0.9;
         background-color: #FFF!important;
         color: black q!important;
         border-radius: 5px!important;
       }
-     /* set styles to the div element with id= box */
-      #box{
+
+      /* set styles to the div element with id= box */
+
+      #box {
         position: absolute;
         top: 20px;
         left: 20px;
@@ -63,19 +74,25 @@ This example calls the cartodb layer by using a basemap without labels, then add
         color: #fdb462;
 
       }
+
       /* set styles to the <h4> tag of the element with id= box */
-      #box h4{
+
+      #box h4 {
         font-style: italic;
       }
+
       /* set styles to the <p> tag of the element with id= box */
-      #box p{
+
+      #box p {
         text-align: center;
         font-size: 18px;
-        color:red;
+        color: red;
 
       }
+
       /* set styles to the custom infowindow */
-      .infowindow-custom{
+
+      .infowindow-custom {
         position: relative;
         width: 170px;
         background-color: #FFF;
@@ -88,24 +105,27 @@ This example calls the cartodb layer by using a basemap without labels, then add
         border-radius: 10px;
 
       }
+
       svg {
         position: absolute;
         z-index: 50;
         top: 0;
       }
 
-      .cartodb-popup-content .content h3{
-          font-style: italic;
-          color: black;
+      .cartodb-popup-content .content h3 {
+        font-style: italic;
+        color: black;
       }
-      .cartodb-popup-content .content p{
-          text-align: left;
-          font-size: 16px;
-          color:red;
-          margin-left: 20px;
+
+      .cartodb-popup-content .content p {
+        text-align: left;
+        font-size: 16px;
+        color: red;
+        margin-left: 20px;
       }
 
       /* set styles to the custom infowindow -> close button */
+
       .cartodb-popup-close-button {
         position: absolute;
         top: -12px;
@@ -120,48 +140,51 @@ This example calls the cartodb layer by using a basemap without labels, then add
         text-transform: uppercase;
         z-index: 3;
       }
+
       /* set styles to the custom infowindow -> tip container */
-      .cartodb-popup-tip-container{
+
+      .cartodb-popup-tip-container {
         position: absolute;
         bottom: -13px;
         left: 23px;
-         width: 16px;
-         height: 14px;
-         background: url('http://libs.cartodb.com/cartodb.js/v3/themes/img/light.png') no-repeat -23px -7px;
-         text-indent: -9999px;
-         font-size: 0;
-         line-height: 0;
-         opacity: 1;
-         z-index: 3;
+        width: 16px;
+        height: 14px;
+        background: url('http://libs.cartodb.com/cartodb.js/v3/themes/img/light.png') no-repeat -23px -7px;
+        text-indent: -9999px;
+        font-size: 0;
+        line-height: 0;
+        opacity: 1;
+        z-index: 3;
       }
+
       /* change legend's position and style */
-      .cartodb-legend{
-         left: 20px;
-         bottom: 50px!important;
-         width: 90px;
-         height: auto;
-         background-color: #FFF;
-         opacity: 1;
-         border-radius: 25px!important;
-       }
-       .cartodb-legend ul li{
+
+      .cartodb-legend {
+        left: 20px;
+        bottom: 50px!important;
+        width: 90px;
+        height: auto;
+        background-color: #FFF;
+        opacity: 1;
+        border-radius: 25px!important;
+      }
+
+      .cartodb-legend ul li {
         margin-left: 5px!important;
         font-style: italic!important;
         font-size: 10px!important;
 
-       }
-
-
-
+      }
     </style>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8" type="text/javascript"></script>
     <!-- include cartodb.js CSS library -->
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
-     <!-- include cartodb.js library -->
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <!-- include cartodb.js library -->
+    <script src="https://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 
 
   </head>
+
   <body>
     <div id="map"></div>
 
@@ -196,42 +219,42 @@ This example calls the cartodb layer by using a basemap without labels, then add
         </div>
     </script>
 
-<script>
-  function main() {
+    <script>
+      function main() {
 
-    var lat;
-    var lon;
+        var lat;
+        var lon;
 
-    // define map object
-    var map = new L.Map('map', {
-      zoomControl: false,
-      center: [43, 0],
-      zoom: 3
+        // define map object
+        var map = new L.Map('map', {
+          zoomControl: false,
+          center: [43, 0],
+          zoom: 3
 
-    });
+        });
 
-    /* Define CartoDB layer with createLayer(). More information here:
+        /* Define CartoDB layer with createLayer(). More information here:
+    
+        http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#cartodbcreatelayermap-layersource--options--callback */
+        cartodb.createLayer(map, {
+          user_name: 'modernizacion',
+          type: 'cartodb',
+          sublayers: [
+            {
+              type: "http",
+              urlTemplate: "http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png",
+              subdomains: ["a", "b", "c"]
+            },
 
-    http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#cartodbcreatelayermap-layersource--options--callback */
-    cartodb.createLayer(map, {
-      user_name: 'modernizacion',
-      type: 'cartodb',
-      sublayers: [
-        {
-          type: "http",
-          urlTemplate: "http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png",
-          subdomains: [ "a", "b", "c" ]
-        },
-
-        {
-          type: "http",
-          urlTemplate: "http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png",
-          subdomains: [ "a", "b", "c" ]
-        },
-        {
-           type: "mapnik",
-           sql: 'select * FROM puntos2017_2_export',
-           cartocss: `#layer {
+            {
+              type: "http",
+              urlTemplate: "http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png",
+              subdomains: ["a", "b", "c"]
+            },
+            {
+              type: "mapnik",
+              sql: 'select * FROM puntos2017_2_export',
+              cartocss: `#layer {
               marker-width: ramp([nro_despegues], range(1, 15), quantiles(5));
               marker-fill: ramp([clasificacion_vuelo], (#acbaf6, #1D6996), ("Cabotaje", "Internacional"), "=");
               marker-fill-opacity: 1;
@@ -240,102 +263,103 @@ This example calls the cartodb layer by using a basemap without labels, then add
               marker-line-color: #FFFFFF;
               marker-line-opacity: 1;
             }`,
-           interactivity: ['clasificacion_vuelo','nro_despegues'],
-        },
-      ]
-    })
-  .addTo(map) // add cartodb layer and basemap to map object
-  .done(function(layer) {
-    console.log(layer)
-    /*Once that the basemap and cartodb layer are added....*/
-
-        /* Enable mouse events with CartoDB layers */
-
-        // 1- Set CartoDB layer interaction
-        layer.setInteraction(true);
-
-        // 2- Custom mouseover event on CartoDB layers
-        layer.on('featureOver',function(e,latlng,pos,data){
-          lat = (latlng[0]).toFixed(2) // show latitude of clicked point in the console
-          lon = (latlng[1]).toFixed(2) // show longitude of clicked point in the console
-        // 3- Add coordinates of the selected geometry in the div element
-        //  with id = "box"
-           // document.getElementById("lat").innerHTML = lat;
-           // document.getElementById("lon").innerHTML = lon;
-          var chart = d3.select('body').selectAll("svg")
-             .data([data])
-             .enter()
-             .append("svg")
-             .append("circle")
-             .attr("cx", 130)
-             .attr("cy", 130)
-             .attr("r", function(d){
-               return d.nro_despegues / 200
-             })
-             // .attr("width", function(d){
-             //   console.log('D3: ',d)
-             //   return d.nro_despegues
-             // })
-             // .attr("height", function(d){
-             //   console.log(d.nro_despegues)
-             //   return d.nro_despegues
-             // })
-             .attr('fill', 'red')
-        });
-
-      /* Set custom infowindow (= click infowindow) More information here:
-      http://docs.cartodb.com/cartodb-platform/cartodb-js/ui-functions/#cartodbvisvisaddinfowindowmap-layer-fields--options
-
-      */
-
-       cdb.vis.Vis.addInfowindow(
-          map, layer, ['clasificacion_vuelo'],
-          {
-             infowindowTemplate: $('#infowindow_template').html()
-          });
-
-       /* Set custom tooltip (= hover infowindow) More information here:
-            http://docs.cartodb.com/cartodb-platform/cartodb-js/ui-functions/#visaddoverlaytooltip
-
-         */
-
-        // 1- Define tootltip with createLayer
-        // HOVER BOX
-         var tooltip = layer.leafletMap.viz.addOverlay({
-            type: 'tooltip',
-            layer: layer,
-            template: '<div class="cartodb-tooltip-content-wrapper"><p>{{clasificacion_vuelo}}</p><p>{{nro_despegues}}</p></div>',
-            width: 200,
-            position: 'bottom|right',
-            fields: [{ name: 'clasificacion_vuelo' }]
-          });
-
-          //2- Add tooltip to map object
-          $('body').append(tooltip.render().el);
-
-         /* Set custom infobox (= hover infowindow) More information here:
-            http://docs.cartodb.com/cartodb-platform/cartodb-js/ui-functions/#visaddoverlayinfobox
-          */
-
-      // 1- Define infobox with createLayer()
-      // BOTTOM LEFT BOX
-       var infoBox = layer.leafletMap.viz.addOverlay({
-          type: 'infobox',
-          layer: layer,
-          template: '<div id="cartodb-tooltip-content-wrapper" class="cartodb-tooltip-content-wrapper"><h3>Clasificación vuelo:</h3><p>{{clasificacion_vuelo}}<span></span></p></div>',
-          width: 150,
-          position: 'bottom|left'
-        });
-
-       //2- Add infobox to map object
-        $('body').append(infoBox.render().el);
-
-        }).error(function(err) {
-          console.log('Error: ' + err)
+              interactivity: ['clasificacion_vuelo', 'nro_despegues'],
+            },
+          ]
         })
+          .addTo(map) // add cartodb layer and basemap to map object
+          .done(function (layer) {
+            console.log(layer)
+            /*Once that the basemap and cartodb layer are added....*/
+
+            /* Enable mouse events with CartoDB layers */
+
+            // 1- Set CartoDB layer interaction
+            layer.setInteraction(true);
+
+            // 2- Custom mouseover event on CartoDB layers
+            layer.on('featureOver', function (e, latlng, pos, data) {
+              lat = (latlng[0]).toFixed(2) // show latitude of clicked point in the console
+              lon = (latlng[1]).toFixed(2) // show longitude of clicked point in the console
+              // 3- Add coordinates of the selected geometry in the div element
+              //  with id = "box"
+              // document.getElementById("lat").innerHTML = lat;
+              // document.getElementById("lon").innerHTML = lon;
+              var chart = d3.select('body').selectAll("svg")
+                .data([data])
+                .enter()
+                .append("svg")
+                .append("circle")
+                .attr("cx", 130)
+                .attr("cy", 130)
+                .attr("r", function (d) {
+                  return d.nro_despegues / 200
+                })
+                // .attr("width", function(d){
+                //   console.log('D3: ',d)
+                //   return d.nro_despegues
+                // })
+                // .attr("height", function(d){
+                //   console.log(d.nro_despegues)
+                //   return d.nro_despegues
+                // })
+                .attr('fill', 'red')
+            });
+
+            /* Set custom infowindow (= click infowindow) More information here:
+            http://docs.cartodb.com/cartodb-platform/cartodb-js/ui-functions/#cartodbvisvisaddinfowindowmap-layer-fields--options
+      
+            */
+
+            cdb.vis.Vis.addInfowindow(
+              map, layer, ['clasificacion_vuelo'],
+              {
+                infowindowTemplate: $('#infowindow_template').html()
+              });
+
+            /* Set custom tooltip (= hover infowindow) More information here:
+                 http://docs.cartodb.com/cartodb-platform/cartodb-js/ui-functions/#visaddoverlaytooltip
+     
+              */
+
+            // 1- Define tootltip with createLayer
+            // HOVER BOX
+            var tooltip = layer.leafletMap.viz.addOverlay({
+              type: 'tooltip',
+              layer: layer,
+              template: '<div class="cartodb-tooltip-content-wrapper"><p>{{clasificacion_vuelo}}</p><p>{{nro_despegues}}</p></div>',
+              width: 200,
+              position: 'bottom|right',
+              fields: [{ name: 'clasificacion_vuelo' }]
+            });
+
+            //2- Add tooltip to map object
+            $('body').append(tooltip.render().el);
+
+            /* Set custom infobox (= hover infowindow) More information here:
+               http://docs.cartodb.com/cartodb-platform/cartodb-js/ui-functions/#visaddoverlayinfobox
+             */
+
+            // 1- Define infobox with createLayer()
+            // BOTTOM LEFT BOX
+            var infoBox = layer.leafletMap.viz.addOverlay({
+              type: 'infobox',
+              layer: layer,
+              template: '<div id="cartodb-tooltip-content-wrapper" class="cartodb-tooltip-content-wrapper"><h3>Clasificación vuelo:</h3><p>{{clasificacion_vuelo}}<span></span></p></div>',
+              width: 150,
+              position: 'bottom|left'
+            });
+
+            //2- Add infobox to map object
+            $('body').append(infoBox.render().el);
+
+          }).error(function (err) {
+            console.log('Error: ' + err)
+          })
 
       }
       window.onload = main;
     </script>
   </body>
+
 </html>

@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <style>
-      html, body, #map {
+      html,
+      body,
+      #map {
         height: 100%;
         padding: 0;
         margin: 0;
       }
-      #selector_menu{
-              position: absolute;
-              top: 20px;
-              left: 40px;
-              z-index: 9000;
-            }
+
+      #selector_menu {
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        z-index: 9000;
+      }
     </style>
     <!-- include cartodb css  -->
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
     <!-- include cartodb.js library -->
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="https://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 
   </head>
+
   <body>
     <!--  define a map object-->
     <div id="map"></div>
     <div id='selector_menu'>
-        <select id='selector'>
-          <option value='torque'>Torque</option>
-          <option value='heatmap'>Heatmap</option>
-          <option value = 'torquecat'>Torque Category</option>
-        </select>
+      <select id='selector'>
+        <option value='torque'>Torque</option>
+        <option value='heatmap'>Heatmap</option>
+        <option value='torquecat'>Torque Category</option>
+      </select>
 
     </div>
 
@@ -40,9 +45,9 @@
 
         //create map element
         var map = new L.Map('map', {
-           zoomControl: true,
-           center: [40, 0],
-           zoom: 3
+          zoomControl: true,
+          center: [40, 0],
+          zoom: 3
         });
 
         // add map
@@ -87,25 +92,25 @@
         // cartocss style
         var CARTOCSSTorque = [
           'Map {',
-            '-torque-frame-count: 729;',
-            '-torque-animation-duration: 60;',
-            '-torque-time-attribute: "rowid";',
-            '-torque-aggregation-function: "count(1)";',
-            '-torque-resolution: 1;',
-            '-torque-data-aggregation: linear;',
+          '-torque-frame-count: 729;',
+          '-torque-animation-duration: 60;',
+          '-torque-time-attribute: "rowid";',
+          '-torque-aggregation-function: "count(1)";',
+          '-torque-resolution: 1;',
+          '-torque-data-aggregation: linear;',
           '}',
           '#layer {',
-            'marker-width: 1;',
-            'marker-fill: #4dd9ee;',
-            'marker-fill-opacity: 0.9;',
-            'marker-line-width: 0;',
-            'marker-line-color: #FFFFFF;',
-            'marker-line-opacity: 1;',
-            'comp-op: lighter;',
+          'marker-width: 1;',
+          'marker-fill: #4dd9ee;',
+          'marker-fill-opacity: 0.9;',
+          'marker-line-width: 0;',
+          'marker-line-color: #FFFFFF;',
+          'marker-line-opacity: 1;',
+          'comp-op: lighter;',
           '}',
           '#layer[frame-offset=1] {',
-            'marker-width: 3;',
-            'marker-fill-opacity: 0.45;',
+          'marker-width: 3;',
+          'marker-fill-opacity: 0.45;',
           '}'
         ].join('\n');
 
@@ -173,61 +178,62 @@
             query: "SELECT * FROM same_07_vuelos_ida_puntos_torque",
             user_name: 'modernizacion',
             table_name: "same_07_vuelos_ida_puntos_torque",
-            cartocss:  CARTOCSSTorque,
+            cartocss: CARTOCSSTorque,
             loop: true // stop loop of the animation
           },
-            https:true // here!
+          https: true // here!
         }
 
         cartodb.createLayer(map, layerSource)
           .addTo(map)
-          .done(function(layer){
+          .done(function (layer) {
             var torqueLayer = layer;
             // torqueLayer.stop(); // everytime that the map is reloaded, the torque layer is stop, the animation won't start
-                                // unless you click the "play" button.
+            // unless you click the "play" button.
             torqueLayer.getStep(0); // everytime that the map is reloaded, it restarts the animation
 
 
             var LayerActions = {
-                        torque: function(){
-                          torqueLayer.setCartoCSS(CARTOCSSTorque);
-                          torqueLayer.getStep(0); // it restarts the animation
-                          torqueLayer.stop(); //  the torque layer is stop, the animation won't start unless you click the "play" button.
+              torque: function () {
+                torqueLayer.setCartoCSS(CARTOCSSTorque);
+                torqueLayer.getStep(0); // it restarts the animation
+                torqueLayer.stop(); //  the torque layer is stop, the animation won't start unless you click the "play" button.
 
 
-                        },
-                        heatmap: function(){
-                          torqueLayer.setCartoCSS(CARTOCSSHeatMap);
-                          torqueLayer.getStep(0); //  it restarts the animation
-                          torqueLayer.stop(); // the torque layer is stop, the animation won't start unless you click the "play" button.
+              },
+              heatmap: function () {
+                torqueLayer.setCartoCSS(CARTOCSSHeatMap);
+                torqueLayer.getStep(0); //  it restarts the animation
+                torqueLayer.stop(); // the torque layer is stop, the animation won't start unless you click the "play" button.
 
 
-                          return true;
-                        },
-                        torquecat: function(){
-                          torqueLayer.setCartoCSS(CARTOCSSTorqueCat);
-                          torqueLayer.getStep(0); //  it restarts the animation
-                          torqueLayer.stop(); // the torque layer is stop, the animation won't start unless you click the "play" button.
+                return true;
+              },
+              torquecat: function () {
+                torqueLayer.setCartoCSS(CARTOCSSTorqueCat);
+                torqueLayer.getStep(0); //  it restarts the animation
+                torqueLayer.stop(); // the torque layer is stop, the animation won't start unless you click the "play" button.
 
 
-                          return true;
-                        }
-                      }
+                return true;
+              }
+            }
 
-                    $('#selector').change(function() {
-                       LayerActions[$(this).val()]();
-                    });
+            $('#selector').change(function () {
+              LayerActions[$(this).val()]();
+            });
 
             layer.setInteraction(true);
-            layer.on('featureOver',function(e,latlng,pos,data){
+            layer.on('featureOver', function (e, latlng, pos, data) {
               console.log(data)
             })
 
-          }).error(function(err) {
+          }).error(function (err) {
             console.log('Error: ' + err)
           })
       }
       window.onload = main;
     </script>
-</body>
+  </body>
+
 </html>

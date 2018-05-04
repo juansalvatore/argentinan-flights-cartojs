@@ -71,18 +71,18 @@ if (w < 425) {
 
 mapOne.setZoom(zoom)
 
-var styles = [
-  'background: steelblue',
-  'border: 1px solid #ccc',
-  'padding-left: 20px',
-  'padding-right: 20px',
-  'color: white',
-  'display: block',
-  'line-height: 40px',
-  'text-align: center',
-  'font-weight: bold',
-  'font-family: Helvetica',
-  'text-decoration: none',
-].join(';')
+// var styles = [
+//   'background: steelblue',
+//   'border: 1px solid #ccc',
+//   'padding-left: 20px',
+//   'padding-right: 20px',
+//   'color: white',
+//   'display: block',
+//   'line-height: 40px',
+//   'text-align: center',
+//   'font-weight: bold',
+//   'font-family: Helvetica',
+//   'text-decoration: none',
+// ].join(';')
 
-console.log('%c Programado por Juan Salvatore www.juansalvatore.com', styles)
+// console.log('%c Programado por Juan Salvatore www.juansalvatore.com', styles)
