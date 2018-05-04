@@ -5,6 +5,11 @@ let page = 0
 disableScroll()
 document.getElementById('arrow-up').classList.add('hidden-button')
 document.getElementById('footer-info').classList.add('hide-footer')
+window.onkeydown = function (e) {
+  if (e.keycode == 33 || e.keycode == 34 || e.keycode == 38 || e.keycode == 40) {
+    e.preventDefault();
+  }
+}
 document
   .getElementById('scroll-buttons-container')
   .classList.add('center-buttons')

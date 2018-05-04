@@ -621,6 +621,8 @@ i:hover {
   font-size: 30px;
   color: white;
   margin-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .secFour-paragraph {
