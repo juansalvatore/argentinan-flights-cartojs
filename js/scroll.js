@@ -32,7 +32,9 @@ down.addEventListener('click', d => {
     document
       .getElementById('scroll-buttons-container')
       .classList.remove('center-buttons')
+    document.getElementById('scroll-buttons-container').classList.remove('fix-up')
     document.getElementById('scroll-buttons-container').classList.add('up')
+
     document.getElementById('footer-info').classList.remove('hide-footer')
     page++
   } else if (page === 1) {
@@ -41,12 +43,14 @@ down.addEventListener('click', d => {
     //   '<iframe scrolling="no" width="100%" height="100%" frameborder="0" src="https://datosgobar.carto.com/u/modernizacion/builder/421bb584-7839-402d-9fad-ac5f3fafe42a/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>'
     // document.getElementById('scroll-buttons-container').classList.add('up')
     document.getElementById('scroll-buttons-container').classList.remove('up')
+    document.getElementById('scroll-buttons-container').classList.add('fix-up')
     document.getElementById('footer-info').classList.add('hide-footer')
     setTimeout(() => {
       document.getElementById('footer-info').style.display = 'none'
     }, 300)
     page++
     document.getElementById('arrow-down').classList.add('hidden-button')
+    document.getElementById('arrow-text').classList.add('ir-al-mapa')
     enableScroll()
   }
   // } else if (page === 2) {
@@ -73,8 +77,9 @@ up.addEventListener('click', d => {
     disableScroll()
     document.getElementById('scroll-buttons-container').classList.remove('up')
     document.getElementById('arrow-down').classList.remove('hidden-button')
+    document.getElementById('scroll-buttons-container').classList.remove('fix-up')
     document.getElementById('scroll-buttons-container').classList.add('up')
-
+    document.getElementById('arrow-text').classList.remove('ir-al-mapa')
     document.getElementById('footer-info').style.display = 'block'
     setTimeout(() => {
       document.getElementById('footer-info').classList.remove('hide-footer')

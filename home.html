@@ -19,9 +19,10 @@
         <script src="https://code.jquery.com/jquery-1.8.1.js" integrity="sha256-e6rn3uRMD1/JU+Fd/OYCf2OSFcUOXHQlkCL0rYR/JUM=" crossorigin="anonymous"></script> -->
 
         <!-- Load Leaflet CSS -->
-        <link href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" rel="stylesheet">
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+        <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" /> -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+
+        <link rel="stylesheet" href="https://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
         <link rel="stylesheet" href="./css/leaflet.css">
 
     </head>
@@ -62,6 +63,7 @@
         <div id="scroll-buttons-container" class="scroll-buttons-container">
             <span id="scroll-down" class="button-scroll">
                 <img id="arrow-down" class="arrow-down" src="./assets/flecha.svg" alt="scroll down">
+                <span id="arrow-text">Ir al mapa</span>
             </span>
             <span id="scroll-up" class="button-scroll">
                 <img id="arrow-up" class="arrow-up" src="./assets/flecha.svg" alt="scroll down">
@@ -248,16 +250,19 @@
         </div>
 
         <!-- Load Leaflet and Carto libraries -->
-        <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+        <!-- <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script> -->
+        <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15.8/cartodb.js"></script>
         <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
-        <script src="https://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.0-beta/carto.min.js"></script>
+
+        <!-- <script src="https://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.0-beta/carto.min.js"></script> -->
         <!-- include cartodb.js library -->
         <!-- <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script> -->
+        <script src="https://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.2/carto.min.js"></script>
 
 
         <!-- call to library for controlling GIF animation -->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
         <script src="./js/buttons.js"></script>
         <script src="./js/mapOne.js"></script>
         <script src="./js/mapTwo.js"></script>
