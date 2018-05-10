@@ -155,7 +155,7 @@ u {
 
 .title-content {
   z-index: 20;
-  max-width: 600px;
+  max-width: 681px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -321,7 +321,7 @@ u {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 20px;
+  margin-left: 7px;
   padding: 10px;
   padding-left: 25px;
   padding-right: 25px;
@@ -871,7 +871,7 @@ i:hover {
   .selector-content {
     justify-content: center;
     align-items: center;
-    width: 740px;
+    width: 710px;
   }
 }
 
