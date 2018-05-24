@@ -129,6 +129,7 @@ u {
 .fix-up {
   position: fixed;
   top: 100px;
+  height: 100px;
 }
 
 .remove-arrows {
@@ -526,7 +527,7 @@ i:hover {
   position: relative;
   top: 80px;
   width: 100%;
-  height: 380px;
+  height: 250px;
   background-color: rgb(250, 250, 250);
   display: flex;
   align-items: center;
@@ -624,6 +625,7 @@ i:hover {
 .secOne-text-container {
   max-width: 440px;
   color: white;
+  margin-left: 38px;
 }
 
 .secOne-title {
@@ -778,7 +780,6 @@ i:hover {
 }
 
 /* MOBILE LINE GRAPHS */
-
 .grafico-lineas-bariloche-mobile,
 .grafico-lineas-iguazu-mobile {
   display: none;
@@ -809,6 +810,41 @@ div.cartodb-tooltip-content-wrapper p {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Pasajeros más conectados */
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+}
+.box-container-section {
+  display: flex;
+}
+.box-section {
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  color: rgb(192, 192, 192);
+  padding: 10px;
+  text-align: center;
+}
+.box-number {
+  font-size: 30px;
+  margin-top: 35px;
+  margin-bottom: 10px;
+  color: rgb(80, 146, 213);
+}
+.box-text {
+  width: 215px;
+}
+.icon {
+  width: 100px;
+}
+.icon-rutas {
+  width: 154px;
+}
 /* MEDIA QUERIES */
 
 @media (max-width: 1232px) {
@@ -838,6 +874,7 @@ div.cartodb-tooltip-content-wrapper p {
   }
   .secOne-text-container {
     margin-top: 50px;
+    margin-left: 0px;
   }
   .secTwo {
     height: 871px;
@@ -883,7 +920,7 @@ div.cartodb-tooltip-content-wrapper p {
     margin-top: 20px;
   }
   .secThree {
-    height: 870px;
+    height: 1064px;
   }
   .selector {
     height: 190px;
@@ -902,6 +939,9 @@ div.cartodb-tooltip-content-wrapper p {
     justify-content: center;
     align-items: center;
     width: 710px;
+  }
+  .box-container-section {
+    flex-direction: column;
   }
 }
 
@@ -1023,7 +1063,7 @@ div.cartodb-tooltip-content-wrapper p {
     height: 426px;
   }
   .secThree {
-    height: 900px;
+    height: 1064;
   }
   .secFour {
     height: 1200px;
