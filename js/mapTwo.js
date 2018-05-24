@@ -6,7 +6,7 @@ var map = new L.Map('map', {
   zoom: 3,
 })
 
-L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
   attribution: 'Ministerio de Modernización',
 }).addTo(map)
 

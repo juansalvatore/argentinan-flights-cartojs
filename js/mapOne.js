@@ -8,7 +8,7 @@ var mapOne = new L.map('mapOne', {
 })
 
 L.tileLayer(
-  'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+  'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
   {}
 ).addTo(mapOne)
 
