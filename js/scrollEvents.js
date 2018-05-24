@@ -1,8 +1,8 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // Init ScrollMagic
   var controller = new ScrollMagic.Controller()
   // loop through each .project element
-  $('.fade-waiting').each(function () {
+  $('.fade-waiting').each(function() {
     // buld a scene
     var ourScene = new ScrollMagic.Scene({
       triggerElement: this,
@@ -17,7 +17,7 @@ $(document).ready(function () {
       .addTo(controller)
   })
 
-  $('.count').each(function () {
+  $('.count').each(function() {
     // buld a scene
     var ourScene = new ScrollMagic.Scene({
       triggerElement: this,
@@ -30,7 +30,7 @@ $(document).ready(function () {
     })
   })
 
-  $('.wait-fade-arrow').each(function () {
+  $('.wait-fade-arrow').each(function() {
     // buld a scene
     var ourScene = new ScrollMagic.Scene({
       triggerElement: this,
@@ -45,7 +45,7 @@ $(document).ready(function () {
       // })
       .addTo(controller)
   })
-  $('.wait-fade-arrow').each(function () {
+  $('.wait-fade-arrow').each(function() {
     // buld a scene
     var ourScene = new ScrollMagic.Scene({
       triggerElement: this,
