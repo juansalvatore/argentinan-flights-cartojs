@@ -77,28 +77,4 @@ $(document).ready(function() {
       .getElementById('footer-rutas')
       .classList.remove('number-color-locales')
   })
-
-  // ezeiza.addEventListener('click', d => {
-  //   ezeiza.classList.add('button-active')
-  //   cordoba.classList.remove('button-active')
-  //   mendoza.classList.remove('button-active')
-  //   document.getElementById('iframe').innerHTML =
-  //     '<iframe scrolling="no" width="100%" height="100%" frameborder="0" src="https://datosgobar.carto.com/u/modernizacion/builder/421bb584-7839-402d-9fad-ac5f3fafe42a/embed" todosowfullscreen webkittodosowfullscreen moztodosowfullscreen otodosowfullscreen mstodosowfullscreen></iframe>'
-  // })
-
-  // cordoba.addEventListener('click', d => {
-  //   ezeiza.classList.remove('button-active')
-  //   cordoba.classList.add('button-active')
-  //   mendoza.classList.remove('button-active')
-  //   document.getElementById('iframe').innerHTML =
-  //     '<iframe width="100%" height="100%" frameborder="0" src="https://datosgobar.carto.com/u/modernizacion/builder/3e3629a8-8bcd-4547-8155-e1451df469a5/embed" todosowfullscreen webkittodosowfullscreen moztodosowfullscreen otodosowfullscreen mstodosowfullscreen></iframe>'
-  // })
-
-  // mendoza.addEventListener('click', d => {
-  //   ezeiza.classList.remove('button-active')
-  //   cordoba.classList.remove('button-active')
-  //   mendoza.classList.add('button-active')
-  //   document.getElementById('iframe').innerHTML =
-  //     '<iframe width="100%" height="100%" frameborder="0" src="https://datosgobar.carto.com/u/modernizacion/builder/38dfff99-a460-4679-a193-85e6e6707def/embed" todosowfullscreen webkittodosowfullscreen moztodosowfullscreen otodosowfullscreen mstodosowfullscreen></iframe>'
-  // })
 })

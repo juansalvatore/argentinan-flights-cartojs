@@ -6,45 +6,49 @@ var map = new L.Map('map', {
   zoom: 3,
 })
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
-  attribution: 'Ministerio de Modernización',
-}).addTo(map)
+L.tileLayer(
+  'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
+).addTo(map)
 
 var layerSource = {
+  https: true,
   user_name: 'modernizacion',
   type: 'cartodb',
+  url: 'https://{username}.carto.com/api/v1/map',
   sublayers: [
     {
       sql: 'SELECT * FROM modernizacion.volar_aeropuertos_geocode',
-      cartocss: `#layer {
-                        marker-width: 6;
-                        marker-fill: #4d8dee;
-                        marker-fill-opacity: 0.9;
-                        marker-allow-overlap: true;
-                        marker-line-width: 1;
-                        marker-line-color: #FFFFFF;
-                        marker-line-opacity: 1;
-                        }`,
+      cartocss: `
+        #layer {
+          marker-width: 6;
+          marker-fill: ramp([iso_country], (#1b9ae5, #835ecd,#1b9ae5), (null, "AR"), "=");
+          marker-fill-opacity: 0.9;
+          marker-allow-overlap: true;
+          marker-line-width: 0;
+          marker-line-color: #FFFFFF;
+          marker-line-opacity: 1;
+        }`,
       interactivity: ['cartodb_id', 'pais', 'name', 'partidas', 'arribos'],
     },
     {
       sql:
         "WITH lines as( SELECT a.clasificacion_vuelo, a.origen_oaci, a.destino_oaci, a.cartodb_id, a.origen_oaci || '-' || a.destino_oaci as route, ST_Segmentize( ST_Makeline( cdb_latlng(a.origen_lat,a.origen_lon), cdb_latlng(a.destino_lat,a.destino_lon))::geography, 100000 )::geometry as the_geom FROM modernizacion.volar_rutas2017_regulares a WHERE clasificacion_vuelo = 'Internacional' ) SELECT *, case when ST_XMax(the_geom) - ST_XMin(the_geom) <= 180 then ST_Transform(the_geom,3857) when ST_XMax(the_geom) - ST_XMin(the_geom) > 180 then ST_Transform(ST_Difference(ST_Shift_Longitude(the_geom), ST_Buffer(ST_GeomFromText('LINESTRING(180 90, 180 -90)',4326), 0.00001)),3857) end as the_geom_webmercator FROM lines",
       cartocss: `
-                    #layer {
-                        line-width: 1.5;
-                        line-color: ramp([clasificacion_vuelo], (#7189f1, #1941b0), ("Cabotaje", "Internacional"), "=");
-                        line-opacity: 0.12;
-                    }`,
+      #layer {
+        line-width: 2.5;
+        line-color: ramp([clasificacion_vuelo], (#835ecd, #1b9ae5), ("Cabotaje", "Internacional"), "=");
+        line-opacity: 0.22;
+      }`,
     },
     {
       sql:
         "WITH lines as( SELECT a.clasificacion_vuelo, a.origen_oaci, a.destino_oaci, a.cartodb_id, a.origen_oaci || '-' || a.destino_oaci as route, ST_Segmentize( ST_Makeline( cdb_latlng(a.origen_lat,a.origen_lon), cdb_latlng(a.destino_lat,a.destino_lon))::geography, 100000 )::geometry as the_geom FROM modernizacion.volar_rutas2017_regulares a WHERE clasificacion_vuelo = 'Cabotaje' ) SELECT *, case when ST_XMax(the_geom) - ST_XMin(the_geom) <= 180 then ST_Transform(the_geom,3857) when ST_XMax(the_geom) - ST_XMin(the_geom) > 180 then ST_Transform(ST_Difference(ST_Shift_Longitude(the_geom), ST_Buffer(ST_GeomFromText('LINESTRING(180 90, 180 -90)',4326), 0.00001)),3857) end as the_geom_webmercator FROM lines",
-      cartocss: `#layer {
-                        line-width: 1.5;
-                        line-color: ramp([clasificacion_vuelo], (#7189f1, #1941b0), ("Cabotaje", "Internacional"), "=");
-                        line-opacity: 0.12;
-                        }`,
+      cartocss: `
+      #layer {
+        line-width: 2.5;
+        line-color: ramp([clasificacion_vuelo], (#835ecd, #1b9ae5), ("Cabotaje", "Internacional"), "=");
+        line-opacity: 0.22;
+      }`,
     },
   ],
   extra_params: {
@@ -87,13 +91,13 @@ cartodb
       type: 'tooltip',
       layer: layer,
       template: `
-                            <div class="cartodb-tooltip-content-wrapper">
-                                <p><strong>Pais:</strong> {{pais}}</p>
-                                <p><strong>Nombre:</strong> {{name}}</p>
-                                <p><strong>Partidas:</strong> {{partidas}}</p>
-                                <p><strong>Arribos:</strong> {{arribos}}</p>
-                            </div>
-                        `,
+          <div class="cartodb-tooltip-content-wrapper">
+              <p><strong>Pais:</strong> {{pais}}</p>
+              <p><strong>Nombre:</strong> {{name}}</p>
+              <p><strong>Partidas:</strong> {{partidas}}</p>
+              <p><strong>Arribos:</strong> {{arribos}}</p>
+          </div>
+      `,
       width: 400,
       position: 'bottom|right',
       fields: [{ name: 'cartodb_id' }],
