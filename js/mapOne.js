@@ -45,7 +45,9 @@ var layerSource = {
 var sublayers = []
 
 cartodb
-  .createLayer(mapOne, layerSource)
+  .createLayer(mapOne, layerSource, {
+    https: true,
+  })
   .addTo(mapOne)
   .done(function(layer) {})
   .error(function(err) {

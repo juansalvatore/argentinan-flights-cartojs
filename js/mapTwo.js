@@ -59,7 +59,9 @@ var layerSource = {
 var sublayers = []
 
 cartodb
-  .createLayer(map, layerSource)
+  .createLayer(map, layerSource, {
+    https: true,
+  })
   .addTo(map)
   .done(function(layer) {
     let aeropuertos = layer.getSubLayer(0)
