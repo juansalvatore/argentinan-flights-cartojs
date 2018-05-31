@@ -840,6 +840,7 @@ hr {
   position: relative;
   float: right;
   top: 7px;
+  margin-right: 10px;
 }
 /* gives to the tooltip different styles */
 div.cartodb-tooltip-content-wrapper {
