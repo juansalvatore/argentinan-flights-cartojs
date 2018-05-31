@@ -67,10 +67,7 @@ cartodb
     let aeropuertos = layer.getSubLayer(0)
     let internacional = layer.getSubLayer(1)
     let cabotaje = layer.getSubLayer(2)
-    aeropuertos.on('hover', () => {
-      console.log('hover')
-    })
-    addCursorInteraction(aeropuertos)
+
     // Layers toggle
     $('#cabotaje').on('click', function(e, sublayers) {
       cabotaje.show()
@@ -94,17 +91,53 @@ cartodb
       layer: layer,
       template: `
           <div class="cartodb-tooltip-content-wrapper">
-              <p><strong>Pais:</strong> {{pais}}</p>
-              <p><strong>Nombre:</strong> {{name}}</p>
-              <p><strong>Partidas:</strong> {{partidas}}</p>
-              <p><strong>Arribos:</strong> {{arribos}}</p>
+              <p class="title-popup"><strong>{{pais}}</strong></p>
+              <p><span class="categoria-popup">Aeropuerto /</span> {{name}}</p>
+              <hr />
+              <p><span class="categoria-popup">Partidas /</span> {{partidas}}</p>
+              <hr />
+              <p><span class="categoria-popup">Arribos /</span> {{arribos}}</p>
           </div>
       `,
       width: 400,
       position: 'bottom|right',
-      fields: [{ name: 'cartodb_id' }],
+      fields: [{ name: 'pais' }],
     })
+
     $('body').append(tooltip.render().el)
+
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      layer.on('featureClick', function(e, latlng, pos, data) {
+        let arribos = data.arribos
+        let partidas = data.partidas
+        let pais = data.pais
+        let name = data.name
+        // 3- Add coordinates of the selected geometry in the div element
+        //  with id = "box"
+        // $('#popup-custom').offset({ left: e.pageX, top: e.pageY })
+        $('#popup-custom').html(`
+          <div class="cartodb-tooltip-content-wrapper">
+            <img id="closePopup" class="close-popup" src="./assets/cruz.svg" />
+            <p class="title-popup"><strong>${pais}</strong></p>
+            <p><span class="categoria-popup"></span> ${name}</p>
+            <div class="popup-row">
+              <p><span class="categoria-popup">Partidas</span> ${partidas}</p>
+              <p class="arribos-popup"><span class="categoria-popup">Arribos</span> ${arribos}</p>
+            </div>
+          </div>
+        `)
+        $('#popup-custom').css({ display: 'block' })
+
+        console.log(document.getElementById('closePopup'))
+        document.getElementById('closePopup').addEventListener('click', () => {
+          $('#popup-custom').css({ display: 'none' })
+        })
+      })
+    }
   })
   .error(function(err) {
     console.log('An error occurred: ' + err)
