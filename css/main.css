@@ -836,8 +836,9 @@ hr {
 
 .close-popup {
   width: 15px;
+  display: flex;
   position: relative;
-  right: -330px;
+  float: right;
   top: 7px;
 }
 /* gives to the tooltip different styles */
