@@ -44,7 +44,7 @@ $(document).ready(function() {
       .getElementById('footer-number')
       .classList.add('number-color-locales')
     document.getElementById('footer-rutas').innerHTML =
-      'vuelos regulares internacionales en 2017'
+      'vuelos regulares de cabotaje en 2017'
 
     document
       .getElementById('footer-rutas')
