@@ -1096,6 +1096,22 @@ div.cartodb-tooltip-content-wrapper p {
   .vuelos-internacionales-svg {
     width: 400px;
   }
+  .footer-content {
+    flex-direction: column;
+  }
+  .footer-info {
+    height: 73px;
+  }
+  .footer-rutas {
+    margin-top: -9px;
+    white-space: nowrap;
+    margin-left: -27px;
+    position: relative;
+    left: 134px;
+    justify-content: center;
+    transform: translateX(-50%);
+    justify-self: center;
+  }
 }
 
 @media (max-width: 425px) {
@@ -1134,22 +1150,6 @@ div.cartodb-tooltip-content-wrapper p {
   }
   .secTwo {
     height: 628px;
-  }
-  .footer-content {
-    flex-direction: column;
-  }
-  .footer-info {
-    height: 73px;
-  }
-  .footer-rutas {
-    margin-top: -9px;
-    white-space: nowrap;
-    margin-left: -27px;
-    position: relative;
-    left: 134px;
-    justify-content: center;
-    transform: translateX(-50%);
-    justify-self: center;
   }
 }
 
