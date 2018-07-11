@@ -22,7 +22,7 @@ function main() {
   //   CARTOCSS = CARTOCSS.join('\n')
   // Add base layer
   var layer = L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}.png',
+    'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png',
     {
       maxZoom: 18,
     }

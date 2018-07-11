@@ -8,7 +8,7 @@ var mapOne = new L.map('mapOne', {
 })
 
 L.tileLayer(
-  'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
+  'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png'
 ).addTo(mapOne)
 
 var layerSource = {
