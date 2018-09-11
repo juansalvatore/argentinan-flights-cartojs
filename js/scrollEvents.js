@@ -39,9 +39,9 @@ $(document).ready(function() {
       triggerHook: 0.8,
     })
       .setClassToggle('#arrow-text', 'remove-arrows') // add class to #img-1
-      // .addIndicators({
-      //   name: 'fade in',
-      // })
+      .addIndicators({
+        name: 'wait-fade-arrow',
+      })
       .addTo(controller)
   })
   $('.wait-fade-arrow').each(function() {
