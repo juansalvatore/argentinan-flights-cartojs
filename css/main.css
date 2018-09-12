@@ -841,6 +841,10 @@ body > div.cartodb-tooltip {
   display: flex;
 }
 
+.margin-top-text-container {
+  margin-top: 40px;
+}
+
 #popup-custom {
   position: relative;
   top: -3px;
@@ -1122,7 +1126,7 @@ div.cartodb-tooltip-content-wrapper p {
 
 @media (max-width: 492px) {
   .secOne {
-    height: 665px;
+    height: 805px;
   }
   .vuelos-nacionales-svg {
     max-width: 364px !important;
@@ -1180,7 +1184,7 @@ div.cartodb-tooltip-content-wrapper p {
 
 @media (max-width: 375px) {
   .secOne {
-    height: 616px;
+    height: 746px;
   }
   .vuelos-internacionales-svg {
     width: 362px;
