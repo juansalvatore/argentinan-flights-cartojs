@@ -1,4 +1,4 @@
-let lon = 4.603722
+let lon = -26.603722
 let lat = -65.381592
 
 var map = new L.Map('map', {

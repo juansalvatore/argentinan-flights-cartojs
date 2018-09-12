@@ -11,7 +11,7 @@ $(document).ready(function() {
     cabotaje.classList.remove('button-active')
     todos.classList.remove('button-active')
     document.getElementById('footer-text').innerHTML =
-      'Los vuelos internacionales, aquellos que salen o llegan a Argentina, crecieron un 8,2% respecto de 2016.'
+      'En lo que va del año crecieron un 12% respecto de igual período del año pasado.'
     document.getElementById('footer-number').innerHTML = '89.845'
     document
       .getElementById('footer-number')
@@ -20,7 +20,7 @@ $(document).ready(function() {
       .getElementById('footer-number')
       .classList.remove('number-color-locales')
     document.getElementById('footer-rutas').innerHTML =
-      'vuelos regulares internacionales en 2017'
+      'Es la cantidad de vuelos internacionales.'
 
     document
       .getElementById('footer-rutas')
@@ -35,7 +35,7 @@ $(document).ready(function() {
     internacional.classList.remove('button-active')
     todos.classList.remove('button-active')
     document.getElementById('footer-text').innerHTML =
-      'Los vuelos de cabotaje, aquellos que se realizan dentro del país, crecieron un 9,9% respecto de 2016.'
+      'En lo que va del año crecieron un 7% respecto de igual período del año pasado.'
     document.getElementById('footer-number').innerHTML = '235.145'
     document
       .getElementById('footer-number')
@@ -44,7 +44,7 @@ $(document).ready(function() {
       .getElementById('footer-number')
       .classList.add('number-color-locales')
     document.getElementById('footer-rutas').innerHTML =
-      'vuelos regulares de cabotaje en 2017'
+      'Es la cantidad de vuelos de cabotaje'
 
     document
       .getElementById('footer-rutas')
@@ -58,11 +58,10 @@ $(document).ready(function() {
     todos.classList.add('button-active')
     internacional.classList.remove('button-active')
     cabotaje.classList.remove('button-active')
-    document.getElementById('footer-text').innerHTML =
-      'En 2017 se realizaron 9,4% más de vuelos que en 2016.'
+    document.getElementById('footer-text').innerHTML = ''
     document.getElementById('footer-number').innerHTML = '324.990'
     document.getElementById('footer-rutas').innerHTML =
-      'vuelos regulares totales en 2017'
+      'Es la cantidad de vuelos totales.'
     document
       .getElementById('footer-number')
       .classList.remove('number-color-internacionales')
