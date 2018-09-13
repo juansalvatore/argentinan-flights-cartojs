@@ -11,7 +11,7 @@ $(document).ready(function() {
     cabotaje.classList.remove('button-active')
     todos.classList.remove('button-active')
     document.getElementById('footer-text').innerHTML =
-      'En lo que va del año crecieron un 12% respecto de igual período del año pasado.'
+      'Un 11% más de vuelos que en el período anterior.'
     document.getElementById('footer-number').innerHTML = '89.845'
     document
       .getElementById('footer-number')
@@ -20,7 +20,7 @@ $(document).ready(function() {
       .getElementById('footer-number')
       .classList.remove('number-color-locales')
     document.getElementById('footer-rutas').innerHTML =
-      'Es la cantidad de vuelos internacionales.'
+      'Vuelos internacionales entre ago-17 y ago-18.'
 
     document
       .getElementById('footer-rutas')
@@ -35,7 +35,7 @@ $(document).ready(function() {
     internacional.classList.remove('button-active')
     todos.classList.remove('button-active')
     document.getElementById('footer-text').innerHTML =
-      'En lo que va del año crecieron un 7% respecto de igual período del año pasado.'
+      'Un 6% más de vuelos que en el período anterior.'
     document.getElementById('footer-number').innerHTML = '235.145'
     document
       .getElementById('footer-number')
@@ -44,7 +44,7 @@ $(document).ready(function() {
       .getElementById('footer-number')
       .classList.add('number-color-locales')
     document.getElementById('footer-rutas').innerHTML =
-      'Es la cantidad de vuelos de cabotaje'
+      'Vuelos de cabotaje entre ago-17 y ago-18.'
 
     document
       .getElementById('footer-rutas')
@@ -58,10 +58,11 @@ $(document).ready(function() {
     todos.classList.add('button-active')
     internacional.classList.remove('button-active')
     cabotaje.classList.remove('button-active')
-    document.getElementById('footer-text').innerHTML = ''
+    document.getElementById('footer-text').innerHTML =
+      'Un 8% más de vuelos que en el período anterior.'
     document.getElementById('footer-number').innerHTML = '324.990'
     document.getElementById('footer-rutas').innerHTML =
-      'Es la cantidad de vuelos totales.'
+      'Vuelos totales entre ago-17 y ago-18.'
     document
       .getElementById('footer-number')
       .classList.remove('number-color-internacionales')
