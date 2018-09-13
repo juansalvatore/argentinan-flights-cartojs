@@ -673,6 +673,7 @@ i:hover {
   font-size: 20px;
   font-weight: 200;
   color: rgb(192, 192, 192);
+  line-height: 22px;
 }
 
 .secFour-content {
@@ -695,7 +696,8 @@ i:hover {
   max-width: 838px;
   font-weight: 200;
   color: white;
-  margin-bottom: 30px;
+  line-height: 40px;
+  margin-bottom: 50px;
 }
 .tortaOne {
   margin: 0;
@@ -966,6 +968,9 @@ div.cartodb-tooltip-content-wrapper p {
   .secOne-content-two {
     flex-direction: column;
   }
+  .vuelos-nacionales-svg {
+    margin-top: -75px;
+  }
   .secOne-title {
     margin-top: 40px;
   }
@@ -1137,6 +1142,7 @@ div.cartodb-tooltip-content-wrapper p {
   }
   .vuelos-nacionales-svg {
     max-width: 364px !important;
+    margin-top: -145px;
   }
   .secFour {
     height: 800px;
@@ -1184,6 +1190,10 @@ div.cartodb-tooltip-content-wrapper p {
   .secFour {
     height: 800px;
   }
+  .secFour-title {
+    font-size: 23px;
+    line-height: 32px;
+  }
   .title-content {
     top: 120px;
   }
@@ -1197,7 +1207,7 @@ div.cartodb-tooltip-content-wrapper p {
     width: 362px;
   }
   .vuelos-nacionales-svg {
-    margin-top: -27px;
+    margin-top: -58px;
     max-width: 310px !important;
   }
   .secTwo {
@@ -1213,7 +1223,8 @@ div.cartodb-tooltip-content-wrapper p {
     height: 730px;
   }
   .secFour-title {
-    font-size: 25px;
+    font-size: 23px;
+    line-height: 32px;
   }
   .secOne {
     height: 800px;
