@@ -673,7 +673,6 @@ i:hover {
   font-size: 20px;
   font-weight: 200;
   color: rgb(192, 192, 192);
-  line-height: 22px;
 }
 
 .secFour-content {
@@ -1174,6 +1173,7 @@ div.cartodb-tooltip-content-wrapper p {
 @media (max-width: 425px) {
   .secOne-paragraph {
     font-size: 17px;
+    line-height: 22px;
   }
   .secOne-title {
     font-size: 25px;
