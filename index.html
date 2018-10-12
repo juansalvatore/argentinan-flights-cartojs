@@ -1,292 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Vuelos</title>
-        <link rel="shortcut icon" href="https://argob.github.io/poncho/favicon.ico">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
-            crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuelos</title>
+    <link rel="shortcut icon" href="https://argob.github.io/poncho/favicon.ico">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
+      crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <!-- load leaflet css -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+    <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="./css/main.css">
+  </head>
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-
-        <!-- load leaflet css -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
-        <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
-
-        <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
-
-        <!-- <link rel="stylesheet" href="https://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" /> -->
-        <!-- <link rel="stylesheet" href="https://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" /> -->
-        <link rel="stylesheet" href="./css/main.css">
-    </head>
-
-    <body>
-        <div class="navbar-container">
-            <div class="navbar">
-                <div class="navbar-content">
-                    <img class="logo" src="./assets/final/Logo_Ministerio_Transporte-01.svg" alt="Ministerio de Modernización Presidencia de la Nación">
-                    <span class="redes">
-                        <p class="comparti">Compartí</p>
-                        <a href="https://www.facebook.com/GobAbiertoAR/" target="_blank" class="pull-right">
-                            <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://twitter.com/datosgobar" target="_blank" class="pull-right">
-                            <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
-                        </a>
-                    </span>
-                </div>
-            </div>
+  <body>
+    <div class="navbar-container">
+      <div class="navbar">
+        <div class="navbar-content">
+          <img class="logo" src="./assets/final/Logo_Ministerio_Transporte-01.svg" alt="Ministerio de Modernización Presidencia de la Nación">
+          <span class="redes">
+            <p class="comparti">Compartí</p>
+            <a href="https://www.facebook.com/GobAbiertoAR/" target="_blank" class="pull-right">
+              <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/datosgobar" target="_blank" class="pull-right">
+              <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+            </a>
+          </span>
         </div>
-        <!-- layer picker -->
+      </div>
+    </div>
 
-        <div id="scroll-buttons-container" class="scroll-buttons-container">
-            <span id="scroll-down" class="button-scroll">
-                <img id="arrow-down" class="arrow-down" src="./assets/flecha.svg" alt="scroll down">
-                <span id="arrow-text">Ir al mapa</span>
-            </span>
-            <span id="scroll-up" class="button-scroll">
-                <img id="arrow-up" class="arrow-up" src="./assets/flecha.svg" alt="scroll down">
-            </span>
+    <!-- Arrows up and down-->
+    <div id="scroll-buttons-container" class="scroll-buttons-container">
+      <span id="scroll-down" class="button-scroll">
+        <img id="arrow-down" class="arrow-down" src="./assets/flecha.svg" alt="scroll down">
+        <span id="arrow-text">Ir al mapa</span>
+      </span>
+      <span id="scroll-up" class="button-scroll">
+        <img id="arrow-up" class="arrow-up" src="./assets/flecha.svg" alt="scroll down">
+      </span>
+    </div>
+
+    <!-- Website content -->
+    <div id="content" class="content">
+      <!-- Block one -->
+      <div class="section section-one">
+        <div class="title-content fade-waiting">
+          <span class="title">Los argentinos más conectados</span>
+          <span class="title-paragraph">El sector aerocomercial continúa creciendo y uniendo a los
+            argentinos.
+            Mirá cómo fueron todos los vuelos del año.</span>
         </div>
+        <div id="mapOne"></div>
+      </div>
 
-
-        <div id="content" class="content">
-            <div class="section section-one">
-                <div class="title-content fade-waiting">
-                    <span class="title">Los argentinos más conectados</span>
-                    <span class="title-paragraph">El sector aerocomercial continúa creciendo y uniendo a los argentinos.
-                        Mirá cómo fueron todos los vuelos del año.</span>
-                </div>
-                <div id="mapOne"></div>
+      <!-- Block two -->
+      <div class="section section-two">
+        <!-- Map two -->
+        <div id="map"></div>
+        <!-- Routes selector -->
+        <span class="selector">
+          <div class="selector-content">
+            <div class="selector-title">
+              Rutas aéreas de Argentina
             </div>
-
-            <div class="section section-two">
-
-                <div id="map"></div>
-
-                <span class="selector">
-                    <div class="selector-content">
-                        <div class="selector-title">
-                            Rutas aéreas de Argentina
-                        </div>
-                        <span class="button-container fade-waiting">
-                            <span id="cabotaje" class="button">
-                                <span class="circle-indicator circle-locales"></span>Cabotaje</span>
-                            <span id="internacional" class="button">
-                                <span class="circle-indicator circle-internacionales"></span>Internacionales</span>
-
-                            <span id="todos" class="button button-active">Todos</span>
-                        </span>
-                    </div>
-                </span>
-                <div id="popup-custom"></div>
-                <div id="footer-info" class="footer-info">
-                    <div class="footer-content">
-                        <div id="footer-number">324.990</div>
-                        <div class="footer-paragraph">
-                            <div id="footer-rutas" class="footer-rutas">Vuelos totales entre ago-17 y ago-18.
-                            </div>
-                            <div id="footer-text" class="footer-text">Un 8% más de vuelos que en el período anterior. </div>
-                        </div>
-
-                    </div>
-                </div>
+            <span class="button-container fade-waiting">
+              <span id="cabotaje" class="button">
+                <span class="circle-indicator circle-locales"></span>Cabotaje</span>
+              <span id="internacional" class="button">
+                <span class="circle-indicator circle-internacionales"></span>Internacionales</span>
+              <span id="todos" class="button button-active">Todos</span>
+            </span>
+          </div>
+        </span>
+        <!-- Popup -->
+        <div id="popup-custom"></div>
+        <!-- Footer rutas dinamico -->
+        <div id="footer-info" class="footer-info">
+          <div class="footer-content">
+            <div id="footer-number">324.990</div>
+            <div class="footer-paragraph">
+              <div id="footer-rutas" class="footer-rutas">Vuelos totales entre ago-17 y ago-18.
+              </div>
+              <div id="footer-text" class="footer-text">Un 8% más de vuelos que en el período anterior.
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div class="section section-three">
-                <div class="scroll-box">
-                    <!-- SECTION FOUR -->
-                    <div class="secFour count">
-                        <div class="secFour-content">
-                            <div class="secFour-title">
-                                Durante el mes de julio de 2018 viajaron <span class="bold">1.359.907 pasajeros en vuelos
-                                    de cabotaje</span>, un 13% más que el mismo mes del año anterior.
-                            </div>
-                            <!-- <div class="secFour-paragraph">
-                                <span class="secFour-subtitle">San Carlos de Bariloche</span>
-                                La mayor cantidad de vuelos a este destino se registraron en los dias de más frio.
-                            </div> -->
-                            <img class="grafico-lineas-bariloche" src="./assets/final/fiebre desktop-01.svg" alt="grafico vuelos a bariloche según el clíma">
-                            <!-- mobile graph -->
-                            <img class="grafico-lineas-bariloche-mobile" src="./assets/final/fiebre-mobile-01.svg" alt="grafico vuelos a bariloche según el clíma">
-                        </div>
-                    </div>
+      <!-- Block three -->
+      <div class="section section-three">
+        <div class="scroll-box">
 
-                    <!-- SECTION TWO -->
-                    <div class="secTwo">
-                        <div class="secOne-content secOne-content-two">
+          <!-- SECTION ONE -->
+          <div class="secFour count">
+            <div class="secFour-content">
+              <div class="secFour-title">
+                Durante el mes de julio de 2018 viajaron <span class="bold">1.359.907 pasajeros en
+                  vuelos
+                  de cabotaje</span>, un 13% más que el mismo mes del año anterior.
+              </div>
+              <!-- <div class="secFour-paragraph">
+                    <span class="secFour-subtitle">San Carlos de Bariloche</span>
+                    La mayor cantidad de vuelos a este destino se registraron en los dias de más frio.
+                </div> -->
+              <img class="grafico-lineas-bariloche" src="./assets/final/fiebre desktop-01.svg" alt="grafico vuelos a bariloche según el clíma">
+              <!-- mobile graph -->
+              <img class="grafico-lineas-bariloche-mobile" src="./assets/final/fiebre-mobile-01.svg" alt="grafico vuelos a bariloche según el clíma">
+            </div>
+          </div>
 
-                            <img class="vuelos-nacionales-svg" src="./assets/final/Mapa-aeropuestos.svg" alt="">
-                            <div class="secOne-text-container margin-top-text-container">
-                                <div class="secOne-title">
-                                    Aeropuertos que más crecieron
-                                </div>
-                                <div class="secOne-paragraph">
-                                    Estos son los cinco aeropuertos que más crecieron en cantidad de pasajeros entre ago-17 y ago-18, respecto de igual período
-                                    anterior.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <!-- SECTION TWO -->
+          <div class="secTwo">
+            <div class="secOne-content secOne-content-two">
+              <img class="vuelos-nacionales-svg" src="./assets/final/Mapa-aeropuestos.svg" alt="">
+              <div class="secOne-text-container margin-top-text-container">
+                <div class="secOne-title">
+                  Aeropuertos que más crecieron
+                </div>
+                <div class="secOne-paragraph">
+                  Estos son los cinco aeropuertos que más crecieron en cantidad de pasajeros entre
+                  ago-17 y ago-18, respecto de igual período
+                  anterior.
+                </div>
+              </div>
+            </div>
+          </div>
 
-                    <!-- SECTION ONE -->
-                    <div class="secOne">
-                        <div class="secOne-content">
-                            <div class="secOne-text-container wait-fade-arrow">
-                                <div class="secOne-title">
-                                    Conectamos el país para unir a los argentinos
-                                </div>
-                                <div class="secOne-paragraph">
-                                    Se incorporaron nuevas rutas aéreas para mejorar la conectividad dentro del país de una manera federal, sin necesidad de
-                                    pasar por Buenos Aires.
-                                    <br/>
-                                    <br/><span class="line"></span><span class="rutas-text-reference">Nuevas rutas aéreas</span>
-                                    <br/><span class="line grey"></span><span class="rutas-text-reference">Rutas aéreas hasta
-                                        2016
-                                    </span>
-                                    <br/>
-                                    <div class="no-incluyen-rutas">No incluyen los aeropuertos del área metropolitana de
-                                        Buenos Aires. </div>
-                                </div>
-                            </div>
-                            <img class="vuelos-internacionales-svg" src="./assets/final/Mapa-rutas.svg" alt="">
-                        </div>
-                    </div>
+          <!-- SECTION THREE -->
+          <div class="secOne">
+            <div class="secOne-content">
+              <div class="secOne-text-container wait-fade-arrow">
+                <div class="secOne-title">
+                  Conectamos el país para unir a los argentinos
+                </div>
+                <div class="secOne-paragraph">
+                  Se incorporaron nuevas rutas aéreas para mejorar la conectividad dentro del país de
+                  una manera federal, sin necesidad de
+                  pasar por Buenos Aires.
+                  <br />
+                  <br /><span class="line"></span><span class="rutas-text-reference">Nuevas rutas
+                    aéreas</span>
+                  <br /><span class="line grey"></span><span class="rutas-text-reference">Rutas
+                    aéreas hasta
+                    2016
+                  </span>
+                  <br />
+                  <div class="no-incluyen-rutas">No incluyen los aeropuertos del área metropolitana
+                    de
+                    Buenos Aires. </div>
+                </div>
+              </div>
+              <img class="vuelos-internacionales-svg" src="./assets/final/Mapa-rutas.svg" alt="">
+            </div>
+          </div>
 
-                    <!-- SECTION TWO -->
-                    <div class="secTwo count">
-                        <div class="secOne-content secOne-content-two">
+          <!-- SECTION FOUR -->
+          <div class="secTwo count">
+            <div class="secOne-content secOne-content-two">
+              <img class="vuelos-nacionales-svg" src="./assets/final/Mapa-mundo_Mesa de trabajo 1.svg" alt="">
+              <div class="secOne-text-container">
+                <div class="secOne-title">
+                  Nuevas conexiones hacia el mundo
+                </div>
+                <div class="secOne-paragraph">
+                  Nuevas ciudades con aeropuertos internacionales para poder recibir turistas del
+                  exterior y conocer el mundo sin necesidad
+                  de hacer escala en Buenos Aires.
+                </div>
+              </div>
+            </div>
+          </div>
 
-                            <img class="vuelos-nacionales-svg" src="./assets/final/Mapa-mundo_Mesa de trabajo 1.svg" alt="">
-                            <div class="secOne-text-container">
-                                <div class="secOne-title">
-                                    Nuevas conexiones hacia el mundo
-                                </div>
-                                <div class="secOne-paragraph">
-                                    Nuevas ciudades con aeropuertos internacionales para poder recibir turistas del exterior y conocer el mundo sin necesidad
-                                    de hacer escala en Buenos Aires.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <!-- <div class="secThree">
+              <div class="secThree-content">
+                  <div class="secThree-title">Más vuelos, más pasajeros, más conectados</div>
+                  <div class="box-container-section">
+                      <div class="box-section">
+                          <img class="icon" src="./assets/icono_avion.svg" alt="">
+                          <div class="box-number">324.990</div>
+                          <div class="box-text">
+                              Son los vuelos regulares realizados. Un 9,4% más que en 2016.
+                          </div>
+                      </div>
+                      <div class="box-section">
+                          <img class="icon-rutas" src="./assets/icono_rutas.svg" alt="">
+                          <div class="box-number">54</div>
+                          <div class="box-text">
+                              Nuevas rutas. Desde 2015 se sumaron 31 rutas de cabotaje y 23 internacionales.
+                          </div>
+                      </div>
+                      <div class="box-section">
+                          <img class="icon" src="./assets/icono_pasajero.svg" alt="">
+                          <div class="box-number">27.659.925</div>
+                          <div class="box-text">
+                              Es la cantidad de pasajeros transportados, un 15% más que en 2016.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div> -->
 
-                    <!-- SECTION THREE -->
-                    <!-- <div class="secThree">
-                        <div class="secThree-content">
-                            <div class="secThree-title">Más vuelos, más pasajeros, más conectados</div>
-                            <div class="box-container-section">
-                                <div class="box-section">
-                                    <img class="icon" src="./assets/icono_avion.svg" alt="">
-                                    <div class="box-number">324.990</div>
-                                    <div class="box-text">
-                                        Son los vuelos regulares realizados. Un 9,4% más que en 2016.
-                                    </div>
-                                </div>
-                                <div class="box-section">
-                                    <img class="icon-rutas" src="./assets/icono_rutas.svg" alt="">
-                                    <div class="box-number">54</div>
-                                    <div class="box-text">
-                                        Nuevas rutas. Desde 2015 se sumaron 31 rutas de cabotaje y 23 internacionales.
-                                    </div>
-                                </div>
-                                <div class="box-section">
-                                    <img class="icon" src="./assets/icono_pasajero.svg" alt="">
-                                    <div class="box-number">27.659.925</div>
-                                    <div class="box-text">
-                                        Es la cantidad de pasajeros transportados, un 15% más que en 2016.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-
-
-                    <!-- SECTION FIVE -->
-                    <div class="secFive">
-                        <div class="secFive-content">
-                            <!-- <div class="secFive-title">
+          <!-- SECTION FIVE -->
+          <div class="secFive">
+            <div class="secFive-content">
+              <!-- <div class="secFive-title">
                                 ¿Querés saber más sobre este tema?
                             </div>
                             <div class="verCuriosidades-button">
                                 VER CURIOSIDADES
                             </div> -->
-                            <div class="secFive-paragraph">
-                                Este producto es posible gracias a los datos
-                                <strong>
-                                    <a href="#" style="color: rgb(80, 146, 213)">EANA</a>.
-                                </strong> Acá podés consultar el conjunto de datos original para que puedas explorarlos y
-                                hacer tus propios análisis.
-                            </div>
-                            <span class="escribenos">¿Encontraste algún error? Por favor,
-                                <strong>
-                                    <a href="#" style="color: rgb(80, 146, 213)">escribinos</a>.
-                                </strong>
-                            </span>
-                        </div>
-                    </div>
+              <div class="secFive-paragraph">
+                Este producto es posible gracias a los datos
+                <strong>
+                  <a href="#" style="color: rgb(80, 146, 213)">EANA</a>.
+                </strong> Acá podés consultar el conjunto de datos original para que puedas explorarlos
+                y
+                hacer tus propios análisis.
+              </div>
+              <span class="escribenos">¿Encontraste algún error? Por favor,
+                <strong>
+                  <a href="#" style="color: rgb(80, 146, 213)">escribinos</a>.
+                </strong>
+              </span>
+            </div>
+          </div>
 
-                    <!-- <div class="secSix">
-                        <div class="secSix-content">
-                            <div class="secSix-left">
-                                <span class="redes-secSix">
-                                    <a href="https://medium.com/datos-argentina" target="_blank" class="pull-right">
-                                        <i class="fa fa-medium fa-2x" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="https://github.com/datosgobar" target="_blank" class="pull-right">
-                                        <i class="fa fa-github-alt fa-2x" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="https://twitter.com/datosgobar" target="_blank" class="pull-right">
-                                        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="https://www.facebook.com/GobAbiertoAR/" target="_blank" class="pull-right">
-                                        <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
-                                    </a>
-                                </span>
-                                <img class="secSix-logo" src="./assets/logo-ministerio-modernizacion.png" alt="Ministerio de modernización">
-                            </div>
-                            <div class="secSix-right">
-                                <ul>
-                                    <li style="margin-bottom: 10px;">
-                                        <a href="mailto:datos@modernizacion.gob.ar">Contactanos</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://datos.gob.ar/acerca/seccion/Nuestro%20Equipo" target="_blank">Nuestro
-                                            equipo
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> -->
+          <!-- <div class="secSix">
+            <div class="secSix-content">
+                <div class="secSix-left">
+                    <span class="redes-secSix">
+                        <a href="https://medium.com/datos-argentina" target="_blank" class="pull-right">
+                            <i class="fa fa-medium fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://github.com/datosgobar" target="_blank" class="pull-right">
+                            <i class="fa fa-github-alt fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://twitter.com/datosgobar" target="_blank" class="pull-right">
+                            <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.facebook.com/GobAbiertoAR/" target="_blank" class="pull-right">
+                            <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </span>
+                    <img class="secSix-logo" src="./assets/logo-ministerio-modernizacion.png" alt="Ministerio de modernización">
+                </div>
+                <div class="secSix-right">
+                    <ul>
+                        <li style="margin-bottom: 10px;">
+                            <a href="mailto:datos@modernizacion.gob.ar">Contactanos</a>
+                        </li>
+                        <li>
+                            <a href="http://datos.gob.ar/acerca/seccion/Nuestro%20Equipo" target="_blank">Nuestro
+                                equipo
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+           </div> -->
         </div>
+      </div>
+    </div>
 
-        <!-- Load Leaflet and Carto libraries -->
-        <!-- <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script> -->
-        <!-- <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script> -->
-        <!-- <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15.8/cartodb.js"></script> -->
-        <!-- <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" /> -->
-        <!-- <script src="https://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.2/carto.min.js"></script> -->
-
-
-        <!-- call to library for controlling GIF animation -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
-
-
-
-
-        <script src="./js/buttons.js"></script>
-        <script src="./js/mapOne.js"></script>
-        <script src="./js/mapTwo.js"></script>
-        <!-- <script src="./js/mapThree.js"></script> -->
-        <script src="./js/scroll.js"></script>
-        <script src="./js/scrollEvents.js"></script>
-    </body>
+    <!-- Include libraries for GIF animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+    <!-- Load scripts -->
+    <script src="./js/buttons.js"></script>
+    <script src="./js/mapOne.js"></script>
+    <script src="./js/mapTwo.js"></script>
+    <script src="./js/scroll.js"></script>
+    <script src="./js/scrollEvents.js"></script>
+  </body>
 
 </html>
