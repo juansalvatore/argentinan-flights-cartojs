@@ -5,33 +5,31 @@ let page = 0
 disableScroll()
 document.getElementById('arrow-up').classList.add('hidden-button')
 document.getElementById('footer-info').classList.add('hide-footer')
-window.onkeydown = function (e) {
+
+window.onkeydown = function(e) {
   if (e.keycode == 33 || e.keycode == 34 || e.keycode == 38 || e.keycode == 40) {
-    e.preventDefault();
+    e.preventDefault()
   }
 }
-var ar = new Array(33, 34, 38, 40);
 
-$(document).keydown(function (e) {
-  var key = e.which;
+var ar = new Array(33, 34, 38, 40)
+
+$(document).keydown(function(e) {
+  var key = e.which
   if ($.inArray(key, ar) > -1) {
-    e.preventDefault();
-    return false;
+    e.preventDefault()
+    return false
   }
-  return true;
+  return true
 })
 
-document
-  .getElementById('scroll-buttons-container')
-  .classList.add('center-buttons')
+document.getElementById('scroll-buttons-container').classList.add('center-buttons')
 
 down.addEventListener('click', d => {
   if (page === 0) {
     document.getElementById('content').style.top = '-100vh'
     document.getElementById('arrow-up').classList.remove('hidden-button')
-    document
-      .getElementById('scroll-buttons-container')
-      .classList.remove('center-buttons')
+    document.getElementById('scroll-buttons-container').classList.remove('center-buttons')
     document.getElementById('scroll-buttons-container').classList.remove('fix-up')
     document.getElementById('scroll-buttons-container').classList.add('up')
 
@@ -53,22 +51,13 @@ down.addEventListener('click', d => {
     document.getElementById('arrow-text').classList.add('ir-al-mapa')
     enableScroll()
   }
-  // } else if (page === 2) {
-  //   document.getElementById('content').style.top = '-300vh'
-  //   // document.getElementById('scroll-buttons-container').classList.remove('up')
-  //   enableScroll()
-  //   page++
-  //   console.log(page)
-  // }
 })
 
 up.addEventListener('click', d => {
   if (page === 1) {
     document.getElementById('content').style.top = '0'
     document.getElementById('arrow-up').classList.add('hidden-button')
-    document
-      .getElementById('scroll-buttons-container')
-      .classList.add('center-buttons')
+    document.getElementById('scroll-buttons-container').classList.add('center-buttons')
     document.getElementById('scroll-buttons-container').classList.remove('up')
     document.getElementById('footer-info').classList.add('hide-footer')
     page--
@@ -87,13 +76,6 @@ up.addEventListener('click', d => {
 
     page--
   }
-  // else if (page === 3) {
-  //   document.getElementById('content').style.top = '-200vh'
-  //   disableScroll()
-  //   document.getElementById('scroll-buttons-container').classList.add('up')
-  //   page--
-  //   console.log(page)
-  // }
 })
 
 var keys = { 37: 1, 38: 1, 39: 1, 40: 1 }
@@ -103,14 +85,12 @@ function preventDefault(e) {
   if (e.preventDefault) e.preventDefault()
   e.returnValue = false
 }
-
 function preventDefaultForScrollKeys(e) {
   if (keys[e.keyCode]) {
     preventDefault(e)
     return false
   }
 }
-
 function disableScroll() {
   if (window.addEventListener)
     // older FF
@@ -120,10 +100,8 @@ function disableScroll() {
   window.ontouchmove = preventDefault // mobile
   document.onkeydown = preventDefaultForScrollKeys
 }
-
 function enableScroll() {
-  if (window.removeEventListener)
-    window.removeEventListener('DOMMouseScroll', preventDefault, false)
+  if (window.removeEventListener) window.removeEventListener('DOMMouseScroll', preventDefault, false)
   window.onmousewheel = document.onmousewheel = null
   window.onwheel = null
   window.ontouchmove = null
