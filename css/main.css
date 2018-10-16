@@ -370,7 +370,7 @@ u {
 .footer-info {
   width: 100%;
   background-color: rgb(229, 229, 229);
-  height: 80px;
+  height: 110px;
   position: fixed;
   bottom: 0;
   z-index: 15;
@@ -490,7 +490,8 @@ u {
 }
 
 .redes-secSix {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-right: 30px;
 }
 
 .plane-icon {
@@ -804,9 +805,10 @@ i:hover {
 .secSix-logo {
   width: 300px;
 }
+
 .secSix-left {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
 }
 
@@ -1043,6 +1045,12 @@ div.cartodb-tooltip-content-wrapper p {
   }
   .box-container-section {
     flex-direction: column;
+  }
+  .secSix-left {
+    flex-direction: column;
+  }
+  .redes-secSix {
+    margin-right: 0;
   }
 }
 
