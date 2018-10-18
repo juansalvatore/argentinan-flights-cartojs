@@ -995,7 +995,7 @@ div.cartodb-tooltip-content-wrapper p {
 
 @media (max-width: 778px) {
   .vuelos-internacionales-svg {
-    transform: translateX(-6%);
+    transform: translateX(0%);
   }
   .navbar {
     max-width: 550px;
@@ -1056,7 +1056,7 @@ div.cartodb-tooltip-content-wrapper p {
 
 @media (max-width: 622px) {
   .secOne {
-    height: 900px;
+    height: 1005px;
   }
   .secTwo {
     height: 794px;
@@ -1065,7 +1065,7 @@ div.cartodb-tooltip-content-wrapper p {
     max-width: 419px !important;
   }
   .vuelos-internacionales-svg {
-    width: 500px;
+    width: 380px;
   }
   .navbar {
     max-width: 550px;
@@ -1145,17 +1145,17 @@ div.cartodb-tooltip-content-wrapper p {
 
 @media (max-width: 492px) {
   .secOne {
-    height: 805px;
+    height: 969px;
   }
   .vuelos-nacionales-svg {
     max-width: 364px !important;
-    margin-top: -145px;
+    margin-top: -175px;
   }
   .secFour {
     height: 800px;
   }
   .vuelos-internacionales-svg {
-    width: 400px;
+    width: 348px;
   }
   .footer-content {
     flex-direction: column;
@@ -1212,10 +1212,11 @@ div.cartodb-tooltip-content-wrapper p {
     height: 746px;
   }
   .vuelos-internacionales-svg {
-    width: 362px;
+    width: 262px;
+    transform: translateX(0%);
   }
   .vuelos-nacionales-svg {
-    margin-top: -58px;
+    margin-top: -70px;
     max-width: 310px !important;
   }
   .secTwo {
@@ -1235,7 +1236,7 @@ div.cartodb-tooltip-content-wrapper p {
     line-height: 32px;
   }
   .secOne {
-    height: 800px;
+    height: 760px;
   }
 }
 
